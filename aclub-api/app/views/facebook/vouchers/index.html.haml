@@ -1,0 +1,63 @@
+#fb-root
+%script{:src => "https://connect.facebook.net/en_US/all.js"}
+:javascript
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '1506478429666070',
+      status: true,
+      cookie: true,
+      xfbml: true
+    });
+    FB.Canvas.setAutoGrow();
+  };
+  (function (d) {
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+  } (document));
+.minheight400
+  .width810
+    .paddingtop10.paddingbottom10
+      %ul.resetpadding
+        %li.width810
+          = render "available_vouchers", coupons: @available_voucher
+        %li.width810
+          = render "partner_list", partners: @partners
+#modal_have_voucher.modal.fade{:style => "display: none;"}
+  .modal-dialog
+    .modal-content{:style => "width: 420px;"}
+      .modal-header{:style => "color: #fff; background: #1DC800"}
+        %input#couponId{:type => "hidden", :value => ""}
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4.modal-title Ưu đãi đặc biệt dành cho thành viên Aclub
+      .modal-body.dialog_modal_container
+        #modal_img
+        #voucherDescription
+        #playInfo.padding5.margin-left-4.fontsize14.colorgrey2{:style => "display: none;"}
+          .form-group
+            %label{:for => "playname"} Tên:
+            %input#playname.form-control{:placeholder => "Tên", :type => "text"}
+          .form-group
+            %label{:for => "playphone"} Số Điện Thoại:
+            %input#playphone.form-control{:placeholder => "Số điện thoại", :type => "text"}
+        #verifycation_code.padding5.margin-left-4.fontsize14.colorgrey2{:style => "display: none;"}
+          %input#sms_code_id.form-control{:placeholder => "Nhập Mã Xác Nhận", :type => "text"}
+            %p{:style => "text-align: center; padding: 10px 0 0 0;font-size: 14px;color: #05A71A;"}
+              %b#phone_val
+            %p
+              Xin chào
+              %b#fullNameVal               để xác nhận lại bạn vui lòng nhập mã xác nhận mà bạn đã nhận qua SMS.
+              Nếu không nhận được mã xác nhận, hãy thử cách sau.
+              %br/
+              Không nhận được SMS?
+              %a{:href => "#", :onclick => "resendSMS();"} Gửi lại mã
+        #voucher_result.padding5.margin-left-4.fontsize14.colorgrey2{:style => "display: none;"}
+        .padding5.margin-left-4.colorgrey2
+          %button#play_agame_btn.button.button_role_secondary.button_size_large{:type => "button"} Tham Gia Sự Kiện
+          %button#revice_voucher_btn.button.button_role_secondary.button_size_large{:style => "display: none;", :type => "button"} Nhận ưu đãi
+          %button#other_voucher_btn.button.button_role_secondary.button_size_large{:style => "display: none;", :type => "button"} tham khảo ưu đãi khác
+    %input#stepgetVou{:type => "hidden", :value => "0"}
+
+

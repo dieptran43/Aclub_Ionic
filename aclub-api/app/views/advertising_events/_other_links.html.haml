@@ -1,0 +1,4 @@
+.text-center
+  = link_to t('advertising_event.website_kpup'), @advertising_event.try(:reference_link_1) || 'http://kpub.com.vn/', class: 'btn btn-primary', id: 'thank-you-button', target: '_blank'
+.text-center.last
+  = link_to t('advertising_event.other_event'), @advertising_event.try(:reference_link_2) ||'https://www.facebook.com/aclub.vietnam', class: 'btn btn-primary', id: 'thank-you-button', target: '_blank'

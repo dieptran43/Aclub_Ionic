@@ -1,0 +1,28 @@
+%div
+  %span.title= t('cms.users.name')
+= render 'layouts/search_form', base_url: cms_users_path
+.row.index-table-row
+  .col-md-1
+    = t('cms.users.id')
+  .col-md-2
+    = t('cms.users.name_attribute')
+  .col-md-2
+    = t('cms.users.phone_attribute')
+  .col-md-3
+    = t('cms.users.email_attribute')
+  .col-md-4
+    = t('cms.actions.label')
+- @users.each_with_index do |user, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = user.id
+    .col-md-2
+      = user.name
+    .col-md-2
+      = user.humanized_phone
+    .col-md-3
+      = user.email
+    .col-md-4
+      = link_to t('cms.actions.show'), cms_user_path(user), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), cms_user_path(user), class: 'btn btn-danger', method: :delete
+= paginate @users

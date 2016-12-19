@@ -1,0 +1,24 @@
+%div
+  %span.title= t('cms.restaurant_categories.name')
+  = link_to t('cms.actions.new'), new_cms_restaurant_category_path, class: 'btn new-record'
+.row.index-table-row
+  .col-md-1
+    = t('cms.restaurant_categories.id')
+  .col-md-3
+    = t('cms.restaurant_categories.name')
+  .col-md-5
+    = t('cms.restaurant_categories.alias')
+  .col-md-3
+    = t('cms.actions.label')
+- @restaurant_categories.each_with_index do |restaurant_category, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = restaurant_category.id
+    .col-md-3
+      = restaurant_category.name
+    .col-md-5
+      = restaurant_category.alias
+    .col-md-3
+      = link_to t('cms.actions.show'), cms_restaurant_category_path(restaurant_category), class: 'btn btn-success'
+      = link_to t('cms.actions.edit'), edit_cms_restaurant_category_path(restaurant_category), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), cms_restaurant_category_path(restaurant_category), class: 'btn btn-danger', method: :delete

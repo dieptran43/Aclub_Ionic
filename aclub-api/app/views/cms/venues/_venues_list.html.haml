@@ -1,0 +1,26 @@
+.row.index-table-row
+  .col-md-1
+    = t('cms.venues.id')
+  .col-md-2
+    = t('cms.venues.name_attribute')
+  .col-md-2
+    = t('cms.venues.total_reviews')
+  .col-md-2
+    = t('cms.venues.total_photos')
+  .col-md-3
+    = t('cms.actions.label')
+- venues.each_with_index do |venue, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = venue.id
+    .col-md-2
+      = venue.name
+    .col-md-2
+      = venue.reviews.count
+    .col-md-2
+      = venue.images.count + venue.google_place_images.count + venue.facebook_photos.count
+    .col-md-3
+      = link_to t('cms.actions.show'), cms_venue_path(venue), class: 'btn btn-success'
+      = link_to t('cms.actions.edit'), edit_cms_venue_path(venue), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), cms_venue_path(venue), class: 'btn btn-danger', method: :delete
+= paginate venues

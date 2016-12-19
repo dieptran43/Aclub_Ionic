@@ -1,0 +1,132 @@
+body#advertising {
+  width: 100%;
+  max-width: 1024px;
+
+  #home-page-background, #phone-registration-background {
+    img {
+      width: 100%;
+    }
+  }
+
+  #facebook-sign-in {
+    width: 100%;
+    border-radius: 0px;
+    line-height: 84px;
+    padding: 0;
+    height: 84px;
+    background-color: #192964;
+    font-size: 24px;
+  }
+
+  #phone-registration-form, #verification-code-form {
+    width: 80%;
+    margin: 20px auto 0 auto;
+
+    .field {
+      margin-bottom: 50px;
+
+      input {
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #bdbdbd;
+        font-size: 24px;
+        width: 100%;
+
+        &:focus {
+          border: none;
+          border-bottom: 1px solid #bdbdbd;
+        }
+      }
+    }
+  }
+
+  .verify-button {
+    margin-bottom: 20px;
+
+    button {
+      background-color: #1dc800;
+      font-size: 24px;
+      height: 50px;
+      width: 100%;
+      border-color: white;
+    }
+  }
+}
+
+input#verification-code {
+  font-size: 38px;
+  width: 100%;
+  height: 64px;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+}
+
+p#phone {
+  color: #1dc800;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+p#introduction {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  color: #4a4a4a;
+  width: 96%;
+}
+
+#resend-verification-token {
+  text-decoration: underline;
+  color: #696969;
+}
+
+#thank-you {
+  background-color: #1dc800;
+  padding-top: 100px;
+  @media screen and (max-width: 320px) {
+    padding-top: 50px;
+  }
+
+  .text-center {
+    img {
+      width: 70%;
+    }
+
+    p {
+      font-size: 30px;
+      color: white
+    }
+  }
+
+  .good-luck {
+    width: 70%;
+    margin: auto
+  }
+
+  .last {
+    min-height: 200px;
+  }
+}
+
+#thank-you-button {
+  height: 60px;
+  background-color: #1dc800;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 20px;
+  line-height: 45px;
+  margin: 20px auto 20px auto;
+
+  @media screen and (max-width: 320px) {
+    font-size: 18px;
+  }
+}
+
+#thank-you #thank-you-button {
+  width: 80%;
+}

@@ -1,0 +1,18 @@
+#sign-in-page
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .banner
+      = image_tag('banner.png')
+    .field.input-group
+      %span.input-group-addon
+        %i.fa.fa-envelope
+      = f.email_field :email, autofocus: true, class: 'form-control', placeholder: t('cms.home.email')
+    .field.input-group
+      %span.input-group-addon
+        %i.fa.fa-key
+      = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: t('cms.home.password')
+    .actions
+      = f.submit "Sign in", class: 'btn btn-success'
+    .sign-up-link.text-center
+      %i
+        Don't have any account?
+      = link_to "Sign up here.", new_admin_registration_path

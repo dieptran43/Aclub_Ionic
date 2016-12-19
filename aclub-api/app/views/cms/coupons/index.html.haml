@@ -1,0 +1,5 @@
+%div
+  %span.title= t('cms.coupons.name')
+  = link_to t('cms.actions.new'), new_cms_coupon_path, class: 'btn new-record'
+= render 'list_of_coupons', coupons: @coupons, show_action: true
+= paginate @coupons

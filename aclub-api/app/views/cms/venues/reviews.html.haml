@@ -1,0 +1,7 @@
+%h3
+  Reviews form google places
+%ul#reviews
+  - @reviews.each do |review|
+    %li
+      %div= "Rate: #{review.rating}"
+      %div= "Text: #{review.text}"

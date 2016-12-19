@@ -1,0 +1,7 @@
+- if @restaurants.empty?
+  %h4
+    Bạn hiện không có restaurant nào, ấn vào đây để liên kết restaurant vao fanpage
+  = link_to "Tạo nhà hàng mới trong hệ thống cho fanpage của bạn", new_owner_restaurant_path, class: 'btn btn-infor'
+  = render "wait_list_review_form"
+- else
+  = render 'shared/restaurants_list'

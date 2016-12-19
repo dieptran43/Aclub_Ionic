@@ -1,0 +1,27 @@
+.row.index-table-row
+  .col-md-1
+    = t('cms.coupons.id')
+  .col-md-3
+    = t('cms.coupons.name_attribute')
+  .col-md-5
+    = t('cms.coupons.description')
+  .col-md-3
+    = t('cms.actions.label')
+- coupons.each_with_index do |coupon, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = coupon.id
+    .col-md-3
+      = coupon.restaurant.try(:name)    
+    .col-md-5
+      = truncate(coupon.description, length: 40)
+    .col-md-3
+      - if current_admin.admin?
+        = link_to t('cms.actions.show'), cms_coupon_path(coupon), class: 'btn btn-success'
+        - if show_action
+          = link_to t('cms.actions.edit'), edit_cms_coupon_path(coupon), class: 'btn btn-info'
+          = link_to t('cms.actions.delete'), cms_coupon_path(coupon), class: 'btn btn-danger', method: :delete
+      - elsif current_admin.owner?
+        = link_to t('cms.actions.show'), owner_coupon_path(coupon), class: 'btn btn-success'
+        - if show_action
+          = link_to t('cms.actions.edit'), edit_owner_coupon_path(coupon), class: 'btn btn-info'

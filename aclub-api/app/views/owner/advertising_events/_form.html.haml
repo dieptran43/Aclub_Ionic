@@ -1,0 +1,48 @@
+= form_for [:owner, advertising_event], html: { multipart: true } do |f|
+  .field
+    = f.label :name, t('cms.advertising_events.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :url, t('cms.advertising_events.url')
+    = f.text_field :url, class: 'form-control', disabled: preview
+  .field
+    = f.label :reference_link_1, t('cms.advertising_events.reference_link_1')
+    = f.text_field :reference_link_1, class: 'form-control', disabled: preview
+  .field
+    = f.label :reference_link_2, t('cms.advertising_events.reference_link_2')
+    = f.text_field :reference_link_2, class: 'form-control', disabled: preview
+  .field
+    = f.label :enabled, t('cms.advertising_events.enabled')
+    = f.check_box :enabled, class: 'form-control', disabled: preview
+  .field
+    = f.label :description, t('cms.advertising_events.description')
+    = f.text_area :description, class: 'form-control', disabled: preview
+  .field
+    = f.label :begin_at, t('cms.advertising_events.start_date')
+    = f.text_field :begin_at, 'data-provide' => 'datepicker', class: 'form-control', value: advertising_event.begin_at.try(:strftime, "%d-%m-%Y"), disabled: preview
+  .field
+    = f.label :end_at, t('cms.advertising_events.end_date')
+    = f.text_field :end_at, 'data-provide' => 'datepicker', class: 'form-control', value: advertising_event.end_at.try(:strftime, "%d-%m-%Y"), disabled: preview
+  .field
+    = f.label :winning_rate
+    = f.number_field :winning_rate, class: 'form-control', step: 0.01, disabled: preview
+  .field
+    = f.label :maximum_number_of_winners
+    = f.number_field :maximum_number_of_winners, class: 'form-control', disabled: preview
+  .field
+    = f.label :home_page_background
+    = f.file_field :home_page_background, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-1" }
+      = image_tag advertising_event.home_page_background.url
+  .field
+    = f.label :win_page_background
+    = f.file_field :win_page_background, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-2" }
+      = image_tag advertising_event.win_page_background.url
+  .field
+    = f.hidden_field :user_id, value: current_admin.id
+  - if preview
+    = link_to t('cms.actions.go_to_edit'), edit_owner_advertising_event_path(advertising_event.id), class: "btn btn-info"
+  - else
+    = f.submit "Submit", class: "btn btn-info"
+    

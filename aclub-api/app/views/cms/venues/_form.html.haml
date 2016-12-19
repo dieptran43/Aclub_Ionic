@@ -1,0 +1,43 @@
+= nested_form_for [:cms, venue], html: { multipart: true } do |f|
+  .field
+    = f.label :name, t('cms.venues.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :description, t('cms.venues.description')
+    = f.text_area :description, class: 'form-control', disabled: preview
+  .field
+    = f.label :full_address, t('cms.venues.full_address_hint')
+    = f.text_field :full_address, class: 'form-control', disabled: preview
+    = f.hidden_field :latitude, step: 'any'
+    = f.hidden_field :longitude, step: 'any'
+  .col-md-8#map{ class: "google-map" }
+  .field{ style: "height: 200px" }
+  .field
+    = f.label :website, t('cms.venues.website')
+    = f.text_field :website, class: 'form-control', disabled: preview  
+  .field
+    = f.label :formatted_phone_number, t('cms.venues.phone')
+    = f.text_field :formatted_phone_number, class: 'form-control', disabled: preview
+  - if preview
+    .field
+      = f.label :opening_hours, t('cms.venues.opening_hours')
+      = opening_hours_tag(venue.opening_hours)
+    .field
+      %div
+        = f.label :total_google_photos, "Total Photos From Google Place: #{venue.google_place_images.count}"
+      %div
+        = f.label :total_facebook_photos, "Total Photos From Facebook: #{venue.facebook_photos.count}"
+      %div
+        = f.label :total_s3_images, "Total Photos Uploaded by Admin: #{venue.images.count}"
+      = link_to t('cms.venues.manage_photos'), cms_venue_photos_path(venue)
+    .field
+      %div
+        = f.label :total_reviews, "Total Reviews: #{venue.reviews.count}"
+      %div
+        = f.label :average_rating, average_rating(venue)
+      = link_to t('cms.venues.manage_reviews'), cms_venue_reviews_path(venue)
+  .field
+    - if preview
+      = link_to t('cms.actions.go_to_edit'), edit_cms_venue_path(venue), class: "btn btn-info"
+    - else
+      = f.submit "Submit", class: "btn btn-info"

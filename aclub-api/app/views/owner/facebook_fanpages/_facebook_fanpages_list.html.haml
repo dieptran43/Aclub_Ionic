@@ -1,0 +1,29 @@
+- if facebook_fanpages.empty?
+  = link_to "Bạn hiện không có facebook fanpage nào, ấn vào đây để liên kết fanpage", page_list_owner_third_party_accounts_path(identity_id: current_admin.default_identity_id)
+- else
+  .row.index-table-row
+    .col-md-1
+      = t('owner.facebook_fanpages.id')
+    .col-md-2
+      = t('owner.facebook_fanpages.name')  
+    .col-md-6
+      = t('owner.facebook_fanpages.facebook_page_id')
+    .col-md-2
+      = t('owner.facebook_fanpages.restaurants')
+    .col-md-1
+      = t('owner.actions.label')
+  - facebook_fanpages.each_with_index do |facebook_fanpage, index|
+    .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+      .col-md-1
+        = facebook_fanpage.id
+      .col-md-2
+        = facebook_fanpage.name
+      .col-md-6
+        = link_to facebook_fanpage.facebook_link, facebook_fanpage.facebook_link    
+      .col-md-2
+        - if facebook_fanpage.restaurants.empty?
+          = link_to "Bạn hiện không có restaurant nào, ấn vào đây để liên kết restaurant vao fanpage", owner_restaurants_path
+        - else
+          facebook_fanpage.restaurants.first.name 
+      .col-md-1
+        = link_to t('cms.actions.delete'), owner_facebook_fanpage_path(facebook_fanpage.id), class: 'btn btn-danger', method: :delete

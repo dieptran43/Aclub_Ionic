@@ -1,0 +1,4 @@
+json.array! @restaurants do |restaurant|
+  json.name restaurant.name
+  json.id restaurant.id
+end

@@ -1,0 +1,24 @@
+%div
+  %span.title= t('cms.menus.name')
+  = link_to t('cms.actions.new'), new_owner_menu_path, class: 'btn new-record'
+.row.index-table-row
+  .col-md-3
+    = t('cms.menus.id')
+  .col-md-3
+    = t('cms.menus.name_attribute')  
+  .col-md-3
+    = t('cms.menus.number_of_components')
+  .col-md-3
+    = t('cms.actions.label')
+- @menus.each_with_index do |menu, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-3
+      = menu.id
+    .col-md-3
+      = menu.name    
+    .col-md-3
+      = menu.components_count
+    .col-md-3
+      = link_to t('cms.actions.show'), owner_menu_path(menu), class: 'btn btn-success'
+      = link_to t('cms.actions.edit'), edit_owner_menu_path(menu), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), owner_menu_path(menu.id), class: 'btn btn-danger', method: :delete

@@ -1,0 +1,309 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "vi", "http-equiv" => "content-language"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "Template", :name => "author"}/
+    %meta{:content => "&copy; Template", :name => "COPYRIGHT"}/
+    %meta{:content => "noodp,index,follow", :name => "robots"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "website title", :property => "og:title"}/
+    %meta{:content => "vi_VN", :property => "og:locale"}/
+    %meta{:content => "website link", :property => "og:url"}/
+    %meta{:content => "image description", :property => "og:image"}/
+    %meta{:content => "website description", :property => "og:description"}/
+    %meta{:content => "website name", :property => "og:site_name"}/
+    %meta{:content => "Facebook Admin ID page", :property => "fb:admins"}/
+    %link{:href => "img/favicon.ico", :rel => "shortcut icon"}/
+    %title Aclub - Index
+    / Core CSS
+    = stylesheet_link_tag "css/bootstrap.min.css"
+    = stylesheet_link_tag "css/owl.carousel.min.css"
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag "css/animate.css"
+    = stylesheet_link_tag "css/style.css"
+    = javascript_include_tag "static_page/jquery-1.11.3.min.js"
+    = javascript_include_tag "static_page/bootstrap.min.js"
+    = javascript_include_tag "static_page/owl.carousel.min.js"
+    = javascript_include_tag "static_page/jquery.counter.js"
+    = javascript_include_tag "static_page/common.js"
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,700italic,900,900italic,100,100italic", :rel => "stylesheet", :type => "text/css"}/
+    /[if (gte IE 6)&amp;(lte IE 8)]
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+      <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+    / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+  %body.main-body
+    .main-navigator
+      .main-container.container
+        .mn-inner
+          .box-top
+            %ul
+              %li
+                %select.form-control
+                  %option Hochiminh
+                  %option Hanoi
+              %li
+                %select.form-control
+                  %option VN
+                  %option EN
+          .main-logo
+            = render "shared/main_logo", url: "img/main-logo.png"
+          .expand-main-menu
+            %i.fa.fa-bars
+          .box-search
+            %select.form-control
+              %option Tất cả
+              %option Địa điểm
+              %option Quán
+              %option Món ăn
+              %option Loại hình
+            .bs-inner
+              %input.form-control{:name => "", :placeholder => "Tên địa điểm, món ăn, loại hình...", :type => "text"}/
+            %button.btn-search{:type => "submit"}
+              %i.fa.fa-search
+            %span.bs-count
+              87 results
+              %i.fa.fa-times
+          / box-search
+          = render "shared/static_page_top_banner"
+          / main-menu
+          .mn-line
+          .box-admin
+            %ul
+              %li
+                %a{:href => "#"} Đăng nhập
+              %li
+                %a{:href => "#"} Wish list(0)
+        / mn-inner
+      / main-container
+    / main-navigator
+    .heart-slider
+      #heartslider.owl-carousel
+        .hs-item
+          %a{:href => "#"}
+            = image_tag("data/voucher_slider_01.jpg")
+        .hs-item
+          %a{:href => "#"}
+            = image_tag("data/voucher_slider_02.jpg")
+      / owl-carousel
+    / heart-slider
+    .main-container.container
+      .main-bground
+        .main-box.main-page
+          .mb-title
+            .mb-category
+              %ul
+                %li.active
+                  %a{:href => "#"} Mới nhất
+                %li
+                  %a{:href => "#"} Ưu đãi cho nhóm
+                %li
+                  %a{:href => "#"} Ưu đãi may mắn
+                %li
+                  %a{:href => "#"} Giảm giá %
+                %li
+                  %a{:href => "#"} Tặng sản phẩm
+            .box-page
+              .pagination-router
+                %span.page-label Page
+                %ul.pagination
+                  %li.disabled
+                    %a{:href => "#"} &lt;&nbsp;
+                  %li.active
+                    %a{:href => "#"} 1
+                  %li
+                    %a{:href => "#"} 2
+                  %li
+                    %a{:href => "#"} 3
+                  %li
+                    %a{:href => "#"} &nbsp;&gt;
+              / pagination-router
+            / box-page
+          / mb-title
+          .mb-content
+            .a-grid
+              %ul
+                %li.li-75
+                  %a{:href => "#"}
+                    = image_tag("data/voucher_01.jpg")
+                - @coupons.each_with_index do |coupon, index|
+                  %li{ class: voucher_page_list_class(index) }
+                    .a-item
+                      .ai-thumb
+                        %a{:href => "#"}
+                          %span.ai-sale -20%
+                          %span.ai-count
+                            %i.fa.fa-user>
+                            20
+                          = image_tag(coupon.image.url)
+                      - if index != 14 && index != 11
+                        .ai-content
+                          .ai-row
+                            %a.ai-title{:href => "#"}= coupon.short_description
+                          .ai-row
+                            .ai-desc= coupon.description
+                          .ai-row
+                            .ai-place
+                              %i.fa.fa-map-marker
+                              %span= coupon.restaurant.try(:name)
+                          .ai-row
+                            %span.ai-oldprice
+                              Giá
+                              %span 80.000 VNĐ
+                            %span.ai-price 64.000 VNĐ
+                          %a.btn-order{:href => "#"} Đặt ngay
+                      - else
+                        %a.btn-order{:href => "#"} Đặt ngay 
+              .clearfix
+            / a-grid
+          / mb-content
+          .mb-title
+            .mb-category
+              %ul
+                %li.active
+                  %a{:href => "#"} Mới nhất
+                %li
+                  %a{:href => "#"} Ưu đãi cho nhóm
+                %li
+                  %a{:href => "#"} Ưu đãi may mắn
+                %li
+                  %a{:href => "#"} Giảm giá %
+                %li
+                  %a{:href => "#"} Tặng sản phẩm
+            .box-page
+              .pagination-router
+                %span.page-label Page
+                %ul.pagination
+                  %li.disabled
+                    %a{:href => "#"} &lt;&nbsp;
+                  %li.active
+                    %a{:href => "#"} 1
+                  %li
+                    %a{:href => "#"} 2
+                  %li
+                    %a{:href => "#"} 3
+                  %li
+                    %a{:href => "#"} &nbsp;&gt;
+              / pagination-router
+            / box-page
+          / mb-title
+        / main-box
+      / main-bground
+    / main-container
+    .box-green
+      .main-container.container
+        .green-location
+      / main-container
+    / box-green
+    .footer
+      .footer-col
+        .main-container.container
+          .row.sm-reset-5
+            .col-sm-3.padding-all-5
+              .footer-label
+                Category
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} Khuyến mãi hot
+                  %li
+                    %a{:href => "#"} Địa điểm
+                  %li
+                    %a{:href => "#"} Tin tức
+                  %li
+                    %a{:href => "#"} Tính năng ứng dụng
+                  %li
+                    %a{:href => "#"} AClub Page - Quản lý địa điểm
+                  %li
+                    %a{:href => "#"} Chúng tôi
+                  %li
+                    %a{:href => "#"} Liên hệ
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Customer Service
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} My Wishlist
+                  %li
+                    %a{:href => "#"} My Order
+                  %li
+                    %a{:href => "#"} Orders And Returns
+                  %li
+                    %a{:href => "#"} Contacts
+                  %li
+                    %a{:href => "#"} Site Map
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                My account
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} About Us
+                  %li
+                    %a{:href => "#"} Privacy Policy
+                  %li
+                    %a{:href => "#"} Your Account
+                  %li
+                    %a{:href => "#"} Address Book
+                  %li
+                    %a{:href => "#"} Product Reviews
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Newsletter
+                %i.fa.fa-plus
+              .footer-content
+                %p Join thousands of other people subscribe to our news
+                .box-email
+                  %input.form-control{:name => "", :placeholder => "Input your email", :type => "text"}/
+                  %button.btn-email{:type => "submit"}
+                    %i.fa.fa-play
+                .box-social
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                  %a{:href => "#"}
+                    %i.fa.fa-google-plus
+                  %a{:href => "#"}
+                    %i.fa.fa-tumblr
+                  %a{:href => "#"}
+                    %i.fa.fa-youtube
+                  %a{:href => "#"}
+                    %i.fa.fa-instagram
+                  %a{:href => "#"}
+                    %i.fa.fa-rss
+                / box-social
+              / footer-content
+            / col
+          / row
+        / main-container
+      / footer-col
+      .copyright
+        .main-container.container
+          .go-top
+            Top
+            %i.fa.fa-caret-up
+          %p
+            Powered with love by
+            = succeed "." do
+              %a{:href => "#"} Netbrand
+        / main-container
+      / copyright
+    / footer

@@ -1,0 +1,22 @@
+= form_for [:cms, restaurant_category] do |f|
+  .field
+    = f.label :name, t('cms.restaurant_categorys.name')
+    = f.text_field :name, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :alias, t('cms.restaurant_categorys.alias')
+    = f.text_field :alias, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :image, t('cms.restaurant_categorys.image')
+    = f.file_field :image, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-" }
+      = image_tag restaurant_category.image.url
+
+  .field
+    - if preview
+      - if current_admin
+        = link_to t('cms.actions.go_to_edit'), edit_cms_restaurant_category_path(restaurant_category), class: "btn btn-info"
+      - elsif current_restaurant_owner
+    - else
+      = f.submit "Submit", class: "btn btn-info"

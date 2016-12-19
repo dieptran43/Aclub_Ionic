@@ -1,0 +1,7 @@
+%h3
+  Reviews
+%ul#reviews
+  - @reviews.each do |review|
+    %li
+      %div= "Rate: #{review.rating}"
+      %div= "Text: #{review.text}"

@@ -1,0 +1,22 @@
+= form_for [:cms, partner] do |f|
+  .field
+    = f.label :name, t('cms.partners.name_attribute')
+    = f.text_area :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :url, t('cms.partners.url')
+    = f.text_area :url, class: 'form-control', disabled: preview
+  .field
+    = f.label :order, t('cms.partners.order')
+    = f.number_field :order, class: 'form-control', disabled: preview
+  .field
+    = f.label :image, t('cms.partners.image')
+    = f.file_field :image, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-#{f.options[:child_index]}" }
+      = image_tag partner.image.url
+  .field
+    = f.label :active, t('cms.partners.active')
+    = f.check_box :active, class: 'form-control', disabled: preview
+  - if preview
+    = link_to t('cms.actions.go_to_edit'), edit_cms_partner_path(partner.id), class: "btn btn-info"
+  - else
+    = f.submit "Submit", class: "btn btn-info"

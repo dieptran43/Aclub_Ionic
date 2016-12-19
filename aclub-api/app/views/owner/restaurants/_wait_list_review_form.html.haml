@@ -1,0 +1,23 @@
+%h4 List of submitted reviews
+.row.index-table-row
+  .col-md-3
+    = t('cms.wait_list_reviews.id')
+  .col-md-3
+    = t('cms.wait_list_reviews.restaurant_name')
+  .col-md-3
+    = t('cms.wait_list_reviews.status')
+- current_admin.default_fanpage.restaurant_wait_list_reviews.each_with_index do |review, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-3
+      = review.id
+    .col-md-3
+      = review.restaurant.try(:name)
+    .col-md-3
+      = review.status
+%h4
+  Hoặc chọn nhà hàng có sẵn trong hệ thống cho fanpage của bạn. Yêu cầu của bạn sẽ đuợc xem xét bởi admin của chúng tôi
+= form_tag restaurant_reviews_owner_restaurants_path, method: :post do
+  .form-group.col-md-4
+    = select_tag "restaurant_id", options_from_collection_for_select(@searching_restaurants, "id", "name"), class: 'form-control'
+  = submit_tag 'Thêm nhà hàng vào danh sách review', class: 'btn btn-success'
+= render 'layouts/search_form', base_url: owner_restaurants_path

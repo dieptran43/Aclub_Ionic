@@ -1,0 +1,61 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+      %meta{:charset => "utf-8"}
+        %title Customtab for Restaurants - Add to Page
+  %body.locale_en_US.ltr
+    #fb-root
+    %script{:src => "https://connect.facebook.net/en_US/all.js"}
+    :javascript
+      (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, "script", "facebook-jssdk"));
+    .textaligncenter{:style => "padding:150px 0 0 0; text-align:center;"}
+      %a{:style => "font-size: 20px; padding:20px; display: inbline-block",:href => "#", :onClick => "addtab(1)"}
+        Click here to add
+        %strong Vouchertab to your Facebook Page
+      %p{:style => "font-size:12px;text-align:center;color: #7f7f7f;"} Once you have added Vouchertab you can use it directly on your Facebook page
+    .textaligncenter{:style => "padding:150px 0 0 0; text-align:center;"}
+      %a{:style => "font-size: 20px; padding:20px; display: inbline-block",:href => "#", :onClick => "addtab(2)"}
+        Click here to add
+        %strong Menutab to your Facebook Page
+      %p{:style => "font-size:12px;text-align:center;color: #7f7f7f;"} Once you have added Menutab you can use it directly on your Facebook page
+    :javascript
+      function fbReady(appId){
+        FB.init({
+          appId  : appId,
+          status : true,
+          cookie : true,
+          xfbml  : true
+        });
+      };
+      function addtab(type)
+      {
+        var appId;
+        switch(type) {
+         //voucher tab
+          case 1:
+              appId = '529721793862367';
+              break;
+          //menu tab
+          case 2:
+              appId = '879347998845966';
+              break;
+        };
+        if(window.FB) {
+          fbReady(appId);
+        } else {
+          window.fbAsyncInit = fbReady;
+        };
+        FB.ui({
+          method: 'pagetab',
+          display: 'popup'
+        }, function(response){});
+      };
+      
+      

@@ -1,0 +1,590 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "vi", "http-equiv" => "content-language"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "Template", :name => "author"}/
+    %meta{:content => "&copy; Template", :name => "COPYRIGHT"}/
+    %meta{:content => "noodp,index,follow", :name => "robots"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "website title", :property => "og:title"}/
+    %meta{:content => "vi_VN", :property => "og:locale"}/
+    %meta{:content => "website link", :property => "og:url"}/
+    %meta{:content => "image description", :property => "og:image"}/
+    %meta{:content => "website description", :property => "og:description"}/
+    %meta{:content => "website name", :property => "og:site_name"}/
+    %meta{:content => "Facebook Admin ID page", :property => "fb:admins"}/
+    %link{:href => "img/favicon.ico", :rel => "shortcut icon"}/
+    %title Aclub - Giới thiệu dịch vụ
+    / Core CSS
+    = stylesheet_link_tag "css/bootstrap.min.css"
+    = stylesheet_link_tag "css/owl.carousel.min.css"
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag "css/animate.css"
+    = stylesheet_link_tag "css/style.css"
+    = javascript_include_tag "static_page/jquery-1.11.3.min.js"
+    = javascript_include_tag "static_page/bootstrap.min.js"
+    = javascript_include_tag "static_page/owl.carousel.min.js"
+    = javascript_include_tag "static_page/common.js"
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,700italic,900,900italic,100,100italic", :rel => "stylesheet", :type => "text/css"}/
+    /[if (gte IE 6)&amp;(lte IE 8)]
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+      <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+    / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+  %body
+    .navigator
+      .container
+        .logo
+          = render "shared/main_logo", url: "img/logo.png"
+        .expand-menu
+          %i.fa.fa-bars
+        = render "shared/static_page_top_banner"
+    .main-slider
+      .container
+        .ms-content
+          .ms-caption
+            %h1 Ứng dụng đặt bàn và khuyến mãi địa điểm ăn uống.
+            .ms-button
+              %a{:href => "#"}
+                = image_tag("img/btn-ios.png")
+              %a{:href => "#"}
+                = image_tag("img/btn-android.png")
+          .handphone
+            = image_tag("img/handphone.png")
+        / ms-content
+      / container
+    .clients
+      .container
+        .clients-inner
+          .clients-bg
+          .clients-content
+            .client-title
+              .lb-name OUR CLIENTS
+              %a{:href => "#"}
+                %i.fa.fa-caret-right>
+                View all
+            %ul
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo1.png")
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo2.png")
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo3.png")
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo4.png")
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo5.png")
+              %li
+                %a{:href => "#"}
+                  = image_tag("data/logo6.png")
+            .clearfix
+          / clients-content
+        / clients-inner
+      / container
+    .place-service
+      .container
+        .ps-inner
+          .ps-content
+            .box-time
+              .bt-item
+                = image_tag("img/05.png")
+              .bt-item
+                = image_tag("img/06.png")
+              .bt-comma
+                = image_tag("img/comma.png")
+              .bt-item
+                = image_tag("img/06.png")
+              .bt-item
+                = image_tag("img/05.png")
+              .bt-item
+                = image_tag("img/06.png")
+            .ps-title Địa điểm nhà hàng đã được trải nghiệm
+            .ps-desc Chúng tôi thực hiện điều này bằng cách
+            .ps-line
+            %p.ps-smalltitle Helping people discover great places around them.
+            %p.ps-info Our team visits every restaurant once every three months to ensure our data is fresh. Our vast community of food lovers share their reviews and photos, so you have all that you need to make an informed choice.
+            %p.ps-smalltitle Building amazing experiences around dining.
+            %p.ps-info Starting with information for over 1 million restaurants (and counting) globally, we're making dining smoother and more enjoyable with services like online ordering, cashless payments, and table reservations.
+            %p.ps-smalltitle Enabling restaurants to create amazing experiences.
+            %p.ps-info With dedicated engagement and management tools, we're enabling restaurants to spend more time focusing on food itself, which translates directly to better dining experiences.
+            .ps-button
+              = link_to "Đăng ký nhà hàng", new_admin_registration_path, class: "btn btn-success btn-lg"
+              %a.btn.btn-success.btn-lg{:href => "#"} Tìm kiếm nhà hàng
+          / ps-content
+          .ps-people
+            = image_tag("img/ps-people.png")
+        / ps-inner
+      / container
+    .user-service
+      .container
+        .box-time
+          .bt-item
+            = image_tag("img/05.png")
+          .bt-comma
+            = image_tag("img/comma-white.png")
+          .bt-item
+            = image_tag("img/06.png")
+          .bt-item
+            = image_tag("img/05.png")
+          .bt-item
+            = image_tag("img/06.png")
+          .bt-comma
+            = image_tag("img/comma-white.png")
+          .bt-item
+            = image_tag("img/06.png")
+        .us-desc
+          Người dùng sẵn sàng trải nghiệm dịch vụ
+          tại nhà hàng của bạn. Kết nối ngay!!
+        .us-button
+          %a.btn.btn-success.btn-lg{:href => "#"} Tham gia trải nghiệm
+          = link_to "Đăng ký nhà hàng", new_admin_registration_path, class: "btn btn-success btn-lg"
+      / container
+    .function-service
+      .container
+        .fs-img
+          = image_tag("img/ipad.png")
+        .fs-title Tính năng nổi bật của tài khoản Nhà hàng
+        .fs-desc The one-stop solution for all your table management and advertising needs
+        .fs-list
+          %ul
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_01.png")
+                .g-content
+                  .g-row
+                    %span.g-title Location info
+                  .g-row
+                    Get real-time analytics and actionable insights based on operational and customer metrics
+              / grid
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_02.png")
+                .g-content
+                  .g-row
+                    %span.g-title Menu tab
+                  .g-row
+                    Know the status of your tables in real time, making it easier to manage tables and avoid manual errors
+              / grid
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_03.png")
+                .g-content
+                  .g-row
+                    %span.g-title Voucher tab & Promotions
+                  .g-row
+                    Boost order volumes with special discounts
+              / grid
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_04.png")
+                .g-content
+                  .g-row
+                    %span.g-title
+                      Online ordering
+                      %br>/
+                      \& Loyalty Program
+                  .g-row
+                    Issue loyalty stamps and rewards to your most loyal customers so they keep ordering
+              / grid
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_05.png")
+                .g-content
+                  .g-row
+                    %span.g-title Push notifications
+                  .g-row
+                    Engage your most loyal customers with outlet-level targeted push notifications on their smartphones
+              / grid
+            %li
+              .grid
+                .img
+                  %a{:href => "#"}
+                    = image_tag("data/fs_06.png")
+                .g-content
+                  .g-row
+                    %span.g-title Review
+                  .g-row
+                    Manage all your reservations from a single device using real-time data on table availability, status tracking, and utilization rates
+              / grid
+          .clearfix
+        / fs-list
+      .gallery-service
+        #galleryslider.owl-carousel
+          .gallery-item
+            = image_tag("data/gallery_01.jpg")
+            .gi-caption
+              .gi-title Tư vấn thương hiệu và thiết kế
+              .gi-desc Thông qua hệ thống AClub, bạn dễ dàng phân phối & quảng bá chương trình khuyến mãi của mình tới người dùng Facebook. Đơn giản, tiện lợi & dễ quản lý.
+          / gallery-item
+          .gallery-item
+            = image_tag("data/gallery_02.jpg")
+            .gi-caption
+              .gi-title Voucher tab & Menu tab
+              .gi-desc Thông qua hệ thống AClub, bạn dễ dàng phân phối & quảng bá chương trình khuyến mãi của mình tới người dùng Facebook. Đơn giản, tiện lợi & dễ quản lý.
+          / gallery-item
+          .gallery-item
+            = image_tag("data/gallery_03.jpg")
+            .gi-caption
+              .gi-title Quảng cáo trên Google
+              .gi-desc Thông qua hệ thống AClub, bạn dễ dàng phân phối & quảng bá chương trình khuyến mãi của mình tới người dùng Facebook. Đơn giản, tiện lợi & dễ quản lý.
+          / gallery-item
+          .gallery-item
+            = image_tag("data/gallery_04.jpg")
+            .gi-caption
+              .gi-title Tiếp cận khách hàng qua SMS,MMS
+              .gi-desc Thông qua hệ thống AClub, bạn dễ dàng phân phối & quảng bá chương trình khuyến mãi của mình tới người dùng Facebook. Đơn giản, tiện lợi & dễ quản lý.
+        / owl-carousel
+      / gallery-service
+      .container
+        .fs-title Quảng cáo di động & mạng xã hội trên AClub
+        .fs-desc Chúng tôi là đại lý quảng cáo cho các mạng quảng cáo lớn: Google, Facebook, đối tác liên kết với các mạng viễn thông Viettel, Vinaphone, mobiphone
+        .fs-logo
+          %a{:href => "#"}
+            = image_tag("data/ad_logo_01.png")
+          %a{:href => "#"}
+            = image_tag("data/ad_logo_02.png")
+          %a{:href => "#"}
+            = image_tag("data/ad_logo_03.png")
+          %a{:href => "#"}
+            = image_tag("data/ad_logo_04.png")
+          %a{:href => "#"}
+            = image_tag("data/ad_logo_05.png")
+    .slide-service
+      #slideservice.carousel.slide{"data-ride" => "carousel"}
+        .carousel-inner{:role => "listbox"}
+          .item.active
+            .ss-img.pull-left
+              .ss-wrap
+                = image_tag("data/ss_slide_01.png")
+              / ss-wrap
+            / ss-img
+            .ss-text.pull-right
+              .ss-wrap
+                .ss-title SMS,MMS Quảng cáo
+                .ss-desc
+                  Hệ thống AClub phân phối quảng cáo dựa trên thông tin đăng ký và sự quan tâm của người dùng di động tới dịch vụ giải trí, ăn uống để đảm bảo không gay phiền toái tới khách hàng & tối ưu hiệu quả quảng cáo cho nhà quảng cáo.
+                .ss-button
+                  %a.btn.btn-success.btn-lg{:href => "#"} Casestudy
+                .ss-info
+                  %span.icon32-search
+                  %p.ss-smalltitle Thu hút thêm khách hàng
+                  %p Bạn mong muốn khách hàng biết đến bạn, gọi điện đặt bàn, chúng tôi đều có thể hỗ trợ
+                .ss-info
+                  %span.icon32-clock
+                  %p.ss-smalltitle Tiếp cận đúng người vào đúng thời điểm
+                  %p Bạn có thể lựa chọn khung giờ vàng để quảng cáo hiệu quả nhất.
+                .ss-info
+                  %span.icon32-area
+                  %p.ss-smalltitle Quảng cáo theo khu vực
+                  %p Bạn chuẩn bị khai trương, bạn chỉ muốn quảng cáo tới nhóm khách hàng quanh khu vực nhà hàng của bạn. Chỉ có tại AClub.
+                .ss-info
+                  %span.icon32-click
+                  %p.ss-smalltitle Không truy cập, không mất phí
+                  %p Bạn chỉ trả phí trên số lượng sms gửi thành công và khách hàng xem được quảng cáo.
+                .ss-info
+                  %span.icon32-idea
+                  %p.ss-smalltitle Thiết kế ấn tượng
+                  %p Banner quảng cáo ấn tượng với hiệu ứng chuyển động
+              / ss-wrap
+            / ss-text
+            .clearfix
+          / item
+          .item
+            .ss-img.pull-right
+              .ss-wrap.full-wrap.slide2
+                = image_tag("data/ss_slide_02.png")
+              / ss-wrap
+            / ss-img
+            .ss-text.pull-left
+              .ss-wrap
+                .ss-title Quảng cáo Voucher, Menu tab
+                .ss-desc
+                  Tại Việt Nam mỗi tháng có tới 30 triệu người dùng Facebook, trong đó có 27 triệu người có sử dụng các thiết bị di động để truy cập mạng xã hội này. Nếu tính trên phạm vi hàng ngày, số người truy cập Facebook nói chung và số người truy cập Facebook qua di động nói riêng lần lượt là 20 triệu và 17 triệu người.
+                .ss-button
+                  %a.btn.btn-success.btn-lg{:href => "#"} Tham gia trải nghiệm
+                .ss-info
+                  %span.icon32-tag
+                  %p.ss-smalltitle Tạo Voucher miễn phí
+                  %p Bạn không phải trả bất kỳ khoản phí nào khi phát hành voucher trên hệ thống AClub
+                .ss-info
+                  %span.icon32-search
+                  %p.ss-smalltitle Thu hút thêm khách hàng
+                  %p Bạn mong muốn khách hàng biết đến bạn từ chương trình ưu đãi, hoàn toàn khả thi trên Facebook
+                .ss-info
+                  %span.icon32-clock
+                  %p.ss-smalltitle Tiếp cận đúng người vào đúng thời điểm
+                  %p Bạn có thể lựa chọn khung giờ vàng để quảng cáo hiệu quả nhất.
+                .ss-info
+                  %span.icon32-idea
+                  %p.ss-smalltitle Thiết kế ấn tượng
+                  %p Banner quảng cáo ấn tượng với hiệu ứng chuyển động
+              / ss-wrap
+            / ss-text
+            .clearfix
+          / item
+          .item
+            .ss-img.pull-right
+              .ss-wrap.full-wrap.slide3
+                = image_tag("data/ss_slide_03.png")
+              / ss-wrap
+            / ss-img
+            .ss-text.pull-left
+              .ss-wrap
+                .ss-title Đưa quảng cáo của bạn lên Google hôm nay
+                .ss-desc
+                  Được khách hàng thấy vào đúng thời điểm họ đang tìm kiếm trên Google những thứ bạn cung cấp. Và chỉ thanh toán khi khách hàng nhấp để truy cập trang web hoặc gọi cho bạn.
+                .ss-info
+                  %span.icon32-search
+                  %p.ss-smalltitle Thu hút thêm khách hàng
+                  %p Bạn mong muốn khách hàng biết đến bạn, gọi điện đặt bàn, chúng tôi đều có thể hỗ trợ
+                .ss-info
+                  %span.icon32-clock
+                  %p.ss-smalltitle Tiếp cận đúng người vào đúng thời điểm
+                  %p Bạn có thể lựa chọn khung giờ vàng để quảng cáo hiệu quả nhất.
+                .ss-info
+                  %span.icon32-area
+                  %p.ss-smalltitle Quảng cáo theo khu vực
+                  %p Bạn chuẩn bị khai trương, bạn chỉ muốn quảng cáo tới nhóm khách hàng quanh khu vực nhà hàng của bạn. Chỉ có tại AClub.
+                .ss-info
+                  %span.icon32-click
+                  %p.ss-smalltitle Không truy cập, không mất phí
+                  %p Bạn chỉ thanh toán khi ai đó nhấp vào quảng cáo để truy câp trang web của bạn hoặc gọi cho bạn.
+              / ss-wrap
+            / ss-text
+            .clearfix
+          / item
+          .item
+            .ss-img.pull-right
+              .ss-wrap
+                = image_tag("data/ss_slide_04.png")
+              / ss-wrap
+            / ss-img
+            .ss-text.pull-left
+              .ss-wrap
+                .ss-title Voucher group, Đặt bàn,liên hệ nhà hàng trên Aclub
+                .ss-desc
+                  Được khách hàng thấy vào đúng thời điểm họ đang tìm kiếm trên Google những thứ bạn cung cấp. Và chỉ thanh toán khi khách hàng nhấp để truy cập trang web hoặc gọi cho bạn.
+                .ss-info
+                  %span.icon32-search
+                  %p.ss-smalltitle Thu hút thêm khách hàng
+                  %p Bạn mong muốn khách hàng biết đến bạn, gọi điện đặt bàn, chúng tôi đều có thể hỗ trợ
+                .ss-info
+                  %span.icon32-clock
+                  %p.ss-smalltitle Tiếp cận đúng người vào đúng thời điểm
+                  %p Bạn có thể lựa chọn khung giờ vàng để quảng cáo hiệu quả nhất.
+                .ss-info
+                  %span.icon32-area
+                  %p.ss-smalltitle Quảng cáo theo khu vực
+                  %p Bạn chuẩn bị khai trương, bạn chỉ muốn quảng cáo tới nhóm khách hàng quanh khu vực nhà hàng của bạn. Chỉ có tại AClub.
+                .ss-info
+                  %span.icon32-click
+                  %p.ss-smalltitle Không truy cập, không mất phí
+                  %p Bạn chỉ thanh toán khi ai đó nhấp vào quảng cáo để truy câp trang web của bạn hoặc gọi cho bạn.
+              / ss-wrap
+            / ss-text
+            .clearfix
+          / item
+        / carousel-inner
+        .container
+          %ol.carousel-indicators
+            %li.active{"data-slide-to" => "0", "data-target" => "#slideservice"}
+              %span.ss-table
+                %span.ss-cell SMS,MMS Quảng cáo
+            %li{"data-slide-to" => "1", "data-target" => "#slideservice"}
+              %span.ss-table
+                %span.ss-cell Quảng cáo VOUCHER, MENU tab facebook
+            %li{"data-slide-to" => "2", "data-target" => "#slideservice"}
+              %span.ss-table
+                %span.ss-cell Quảng cáo Google banner theo click
+            %li{"data-slide-to" => "3", "data-target" => "#slideservice"}
+              %span.ss-table
+                %span.ss-cell voucher group, Đặt bàn,liên hệ nhà hàng trên aclub
+      / carousel
+    .box-contact
+      .container
+        .contact-title
+          .lb-name Contact
+        .row
+          .col-sm-9
+            .form
+              .row.sm-reset-10
+                .col-sm-6.padding-all-10
+                  .form-group
+                    %input.form-control.text-icon-user{:name => "", :placeholder => "Full name", :type => "text"}/
+                / col
+                .col-sm-6.padding-all-10
+                  .form-group
+                    %input.form-control.text-icon-email{:name => "", :placeholder => "Email address", :type => "text"}/
+                / col
+              / row
+              .form-group
+                %select.form-control
+                  %option Budget
+              .form-group
+                %select.form-control
+                  %option Timeline
+              .form-group
+                %textarea.form-control{:name => "", :placeholder => "Tell me about your project briefly", :rows => "4"}
+              .form-group.text-right
+                %button.btn.btn-danger.btn-lg.text-uppercase{:type => "submit"} Send
+            / form
+          / col
+          .col-sm-3
+            .contact-smalltitle Location
+            .contact-address 203/3B Trần Kế Xương, Q Phú Nhuận, HCM
+            .contact-smalltitle I AM SOCIAL
+            .contact-social
+              %ul
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                    Facebook
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                    Twitter
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-linkedin
+                    Linkedin
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-google-plus
+                    Google +
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-rss
+                    RSS
+          / col
+        / row
+      / container
+    .box-green
+      .container
+        .green-location
+      / container
+    .footer
+      .footer-col
+        .container
+          .row.sm-reset-5
+            .col-sm-3.padding-all-5
+              .footer-label
+                Category
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} Khuyến mãi hot
+                  %li
+                    %a{:href => "#"} Địa điểm
+                  %li
+                    %a{:href => "#"} Tin tức
+                  %li
+                    %a{:href => "#"} Tính năng ứng dụng
+                  %li
+                    %a{:href => "#"} AClub Page - Quản lý địa điểm
+                  %li
+                    %a{:href => "#"} Chúng tôi
+                  %li
+                    %a{:href => "#"} Liên hệ
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Customer Service
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} My Wishlist
+                  %li
+                    %a{:href => "#"} My Order
+                  %li
+                    %a{:href => "#"} Orders And Returns
+                  %li
+                    %a{:href => "#"} Contacts
+                  %li
+                    %a{:href => "#"} Site Map
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                My account
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} About Us
+                  %li
+                    %a{:href => "#"} Privacy Policy
+                  %li
+                    %a{:href => "#"} Your Account
+                  %li
+                    %a{:href => "#"} Address Book
+                  %li
+                    %a{:href => "#"} Product Reviews
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Newsletter
+                %i.fa.fa-plus
+              .footer-content
+                %p Join thousands of other people subscribe to our news
+                .box-email
+                  %input.form-control{:name => "", :placeholder => "Input your email", :type => "text"}/
+                  %button.btn-email{:type => "submit"}
+                    %i.fa.fa-play
+                .box-social
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                  %a{:href => "#"}
+                    %i.fa.fa-google-plus
+                  %a{:href => "#"}
+                    %i.fa.fa-tumblr
+                  %a{:href => "#"}
+                    %i.fa.fa-youtube
+                  %a{:href => "#"}
+                    %i.fa.fa-instagram
+                  %a{:href => "#"}
+                    %i.fa.fa-rss
+                / box-social
+              / footer-content
+            / col
+          / row
+        / container
+      / footer-col
+      .copyright
+        .container
+          .go-top
+            Top
+            %i.fa.fa-caret-up
+          %p
+            Powered with love by
+            = succeed "." do
+              %a{:href => "#"} Netbrand
+        / container
+      / copyright

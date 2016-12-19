@@ -1,0 +1,14 @@
+- coupons.group_by(&:menu_category_id).each do |menu_category_id, menu_items|
+  .paddingleft10.paddingright10
+    %h3.fontsize30.lineheight40.margin0.paddingbottom5.colorgrey1.fontweightnormal.category-name #{MenuCategory.find_by_id(menu_category_id).try(:name)}
+  .overflowhidden.paddingtop5
+    %ul.container.positionrelative.width850.leftminus10ltr
+      - menu_items.each_with_index do |item, index|
+        %li{:class=>['floatleftltr', 'margin5', (index == 0?'width400':'width195'), 'positionrelative']}
+          %a.displayblock.hovertextdecorationnone.colordarkgrey2.hoverbackgroundcolorlightgrey1{:href => "#", :onclick => "showModal(this, '#{h(item.image.url)}', '#{h(item.name)}');"}
+            %input.menu-description{:type => "hidden", :value => h(item.menu_components.map{|m| h(m.content)}.join '|')}
+              %img.backgroundcolorlightgrey1{:height => index == 0? "400":"195", :src => item.image.url, :width => index == 0? "400":"195"}
+                .positionabsolute.bottom0.left0.widthfull.paddingtop10.paddingbottom6.backgroundgradientblacktransparent
+                  %h4.textoverflowellipsis.fontsize16.lineheight20.paddingleft10.paddingright10.colorwhite.textshadowblacktransparent3.fontweightbold #{h(item.name)}
+                  %p.fontsize12.lineheight18.paddingleft10.paddingright10.textoverflowellipsis.colorwhite.textshadowblacktransparent3 #{h(item.menu_components.map{|m| m.content}.join ', ')}
+                  %p.fontsize12.lineheight18.textoverflowellipsis.paddingleft10.paddingright10.colorwhite.textshadowblacktransparent3.price Giá: #{h(item.price)}

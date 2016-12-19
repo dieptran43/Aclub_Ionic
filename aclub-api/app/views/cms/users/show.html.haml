@@ -1,0 +1,26 @@
+= form_for [:cms, @user] do |f|
+  .field
+    = f.label :phone, t('cms.users.phone_attribute')
+    = f.text_field :phone, class: 'form-control', disabled: true
+  .field
+    = f.label :email, t('cms.users.email_attribute')
+    = f.text_field :email, class: 'form-control', disabled: true
+  .field
+    = f.label :name, t('cms.users.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: true
+  .field
+    = f.label :age_range, t('cms.users.age_range')
+    = f.text_field :age_range, class: 'form-control', disabled: true
+  .field
+    = f.label :location, t('cms.users.location')
+    = f.text_field :location, class: 'form-control', disabled: true
+  .field.image-preview
+    = user_avatar(@user)
+  .field
+    %label
+      = t('cms.users.unused_coupon')
+    = render "cms/coupons/list_of_coupons", coupons: @user.available_coupons, show_action: false, whoiam: :admin
+  .field
+    %label
+      = t('cms.users.used_coupon')
+    = render "cms/coupons/list_of_coupons", coupons: @user.used_coupons, show_action: false

@@ -1,0 +1,8 @@
+%div
+  %span.title= t('cms.restaurants.name')
+= render 'layouts/search_form', base_url: cms_restaurants_path
+= render 'shared/restaurants_list'
+= form_tag cms_restaurants_path, method: :get do
+  .form-group.col-md-2
+    = select_tag "city", options_from_collection_for_select(City.all, "id", "name", @city_id), class: 'form-control'
+  = submit_tag 'Filter', class: 'btn btn-success'

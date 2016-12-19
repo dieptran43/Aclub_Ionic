@@ -1,0 +1,12 @@
+#third-party-accounts
+  .banner
+    = image_tag('banner.png')
+  .header.text-center
+    = I18n.t('sign_up.header_text')
+  .small-header.text-center
+    %i.text= I18n.t('sign_up.step_2_text')
+    %i.content= I18n.t('sign_up.step_2_content')
+  .note.text-center
+    = I18n.t('sign_up.step_2_note')
+  .field-label.text-center
+    = link_to t('sign_up.facebook_sign_in'), "http://#{request.host}:#{request.port}/auth/facebook?scope=email,manage_pages,publish_pages&admin_id=#{current_admin.id}", class: 'btn btn-primary', id: 'facebook-sign-in'

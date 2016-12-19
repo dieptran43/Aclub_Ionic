@@ -1,0 +1,22 @@
+.paddingleft10.paddingright10
+  %h3.fontsize30.lineheight40.margin0.paddingbottom5.colorgrey1.fontweightnormal Nhà hàng liên kết hợp tác
+.paddingtop5
+  .container.positionrelative.left20ltr
+    #myCarousel.carousel.slide
+      .carousel-inner
+        - for i in 0..partners.length / 3
+          .item{:class=>('active' if(i==0))}
+            .row
+            - for j in 0..2
+              - index = i*3 + j
+              - if index < partners.length
+                .col-xs-4
+                  %a.thumbnail{:href => "#{partners[index].url}", :tartget=>"_blank"}
+                    %img.img-responsive{:alt => "#{partners[index].name}", :src => "#{partners[index].image.url}"}/
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
+        %i.glyphicon.glyphicon-chevron-left
+      %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
+        %i.glyphicon.glyphicon-chevron-right
+      %ol.carousel-indicators
+        - for i in 0..partners.length / 3
+          %li{:class=>('active' if(i==0)),"data-slide-to" => "#{i}", "data-target" => "#myCarousel"}

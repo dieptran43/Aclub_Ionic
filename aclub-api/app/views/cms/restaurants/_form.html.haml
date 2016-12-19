@@ -1,0 +1,69 @@
+= nested_form_for [:cms, restaurant] do |f|
+  .field
+    = f.label :name, t('cms.restaurants.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: true
+  .field
+    = f.label :address, t('cms.restaurants.adress')
+    = f.text_field :address, class: 'form-control', disabled: true
+  .field
+    = f.label :area, t('cms.restaurants.area')
+    %input{ type: 'text', class: 'form-control', value: restaurant.area.try(:name), disabled: true }
+  .field
+    = f.label :area, t('cms.restaurants.district')
+    %input{ type: 'text', class: 'form-control', value: restaurant.district.try(:name), disabled: true }
+  .field
+    = f.label :area, t('cms.restaurants.city')
+    %input{ type: 'text', class: 'form-control', value: restaurant.city.try(:name), disabled: true }
+  .field
+    = f.label :phone, t('cms.restaurants.phone')
+    = f.text_field :phone, class: 'form-control', disabled: true
+  .field
+    = f.label :category, t('cms.restaurants.category')
+    %input{ type: 'text', class: 'form-control', value: restaurant.restaurant_category.try(:name), disabled: true }
+  .field.clearfix
+    - Restaurant::CHECK_BOX_LIST.each do |attr_text|
+      .col-md-3
+        = f.label attr_text[0], attr_text[1]
+        = f.check_box attr_text[0], disabled: preview
+  - Restaurant::TEXT_FIELDS.each do |attr_text|
+    .field
+      = f.label attr_text[0], attr_text[1]
+      = f.text_field attr_text[0], class: 'form-control', disabled: preview
+  - Restaurant::LIST_FIELDS.each do |attr_text|
+    .field.form-group
+      = f.label attr_text[0], attr_text[1]
+      = f.select attr_text[0], attr_text[2], {include_blank: true }, { class: 'form-control', disabled: preview }
+  .field.menu-area
+    %h3
+      List of Menu
+    = f.fields_for :menus do |menu_form|
+      .field.input-group
+        = menu_form.text_field :name, placeholder: "Ấn edit để thêm thông tin cho menu này", class: 'form-control', disabled: preview
+        %span.input-group-addon
+          - if menu_form.object.id
+            = link_to "Edit this Menu", edit_cms_menu_path(menu_form.object.id), class: 'btn btn-primary'
+          - else
+            = link_to "Edit this Menu", new_cms_menu_path({restaurant_id: restaurant.id}), class: 'btn btn-primary'
+          = menu_form.link_to_remove "Remove this Menu", class: 'btn btn-danger' unless preview
+      .row
+        .col-md-6
+          %ul
+            %li=menu_form.object.category_name
+            %li=menu_form.object.price
+            %li
+              Món ăn:
+              %ul
+                - menu_form.object.menu_components.each do |component|
+                  %li=component.content
+        .col-md-6
+          = image_tag(menu_form.object.image.url, size: "300x300")
+    = f.link_to_add "Add a Menu", :menus, class: 'btn btn-success' unless preview
+  = render 'shared/restaurant_comments_images', restaurant: restaurant, f: f, preview: preview
+  .field
+    - if preview
+      = link_to t('cms.actions.go_to_edit'), edit_cms_restaurant_path(restaurant), class: "btn btn-info"
+    - else
+      = f.submit "Submit", class: "btn btn-info"
+  .col-md-8#map{ class: "google-map" }
+    %input{ type: 'hidden', id: 'venue_latitude', value: restaurant.lat, disabled: preview }
+    %input{ type: 'hidden', id: 'venue_longitude', value: restaurant.lon, disabled: preview }

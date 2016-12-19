@@ -1,0 +1,19 @@
+%ul
+  - Restaurant.find_by(owner: current_admin).coupons.each do |coupon|
+    %li
+      %p
+        = coupon.description
+      %p
+        So Luong Phat Hanh: #{coupon.quantity}
+      %p
+        So Luong Con Lai: #{coupon.quantity - coupon.user_coupons.count}
+      %label
+        Enter coupon code here: 
+      %input.coupon-code{ type: 'text' }
+      %input.hidden.coupon-id{ type: 'text', value: coupon.id }
+      %a.submit-code-for-redeem.btn.btn-primary{ href: '#' }
+        Submit
+%div
+  %h1:
+    Result
+  %p.result-text

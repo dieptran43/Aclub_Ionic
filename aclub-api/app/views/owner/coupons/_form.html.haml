@@ -1,0 +1,35 @@
+= form_for [:owner, coupon] do |f|
+  .field
+    = f.label :description, t('cms.coupons.description')
+    = f.text_area :description, class: 'form-control', disabled: true
+  .field
+    = f.label :short_description, t('cms.coupons.short_description')
+    = f.text_area :short_description, class: 'form-control', disabled: true
+  .field
+    = f.label :venue, t('cms.coupons.name_attribute')
+    = f.select :venue_id, Venue.order('name').collect { |p| [ p.name, p.id ] }, { }, { class: 'form-control', disabled: true }
+  .field
+    = f.label :start_date, t('cms.coupons.start_date')
+    = f.text_field :start_date, 'data-provide' => 'datepicker', class: 'form-control', value: coupon.start_date.try(:strftime, "%d-%m-%Y"), disabled: true
+  .field
+    = f.label :end_date, t('cms.coupons.end_date')
+    = f.text_field :end_date, 'data-provide' => 'datepicker', class: 'form-control', value: coupon.end_date.try(:strftime, "%d-%m-%Y"), disabled: true
+  .field
+    = f.label :quantity, t('cms.coupons.quantity')
+    = f.number_field :quantity, class: 'form-control', disabled: preview
+  .field
+    = f.label :image, t('cms.coupons.image')
+    = f.file_field :image, class: 'form-control', disabled: true
+    %div{ id: "image-preview-#{f.options[:child_index]}" }
+      = image_tag coupon.image.url
+  .field
+    = f.label :required_minimum_invitees, t('cms.coupons.required_minimum_invitees')
+    = f.number_field :required_minimum_invitees, class: 'form-control', disabled: true
+  .field
+    = f.label :code, t('cms.coupons.code')
+    = f.text_field :code, class: 'form-control', disabled: true, placeholder: t('cms.coupons.code_placeholder')
+  .field
+    - if preview
+      = link_to t('cms.actions.go_to_edit'), edit_owner_coupon_path(coupon), class: "btn btn-info"
+    - else
+      = f.submit "Submit", class: "btn btn-info"

@@ -1,0 +1,29 @@
+.hidden#email{ "data-email" => @current_user.email }
+.hidden#facebook-token{ "data-token" => @current_user.facebook_token }
+.hidden#advertising-event-id{ "data-advertising-event-id" => @advertising_event.id}
+#phone-registration-background
+  = image_tag(@advertising_event.win_page_background.url)
+.alert.alert-error.hidden
+
+- if @current_user.phone.blank?
+  #phone-registration-form
+    .field
+      %input#name{ "placeholder" => t('advertising_event.name'), "type" => "text", "value" => @current_user.name }
+    .field
+      %input#phone{ "placeholder" => t('advertising_event.phone'), "type" => "text" }
+    .verify-button
+      %button.btn.btn-primary#regiter-phone
+        = t('advertising_event.phone_registration')
+- else
+  #verification-code-form
+    %input#verification-code{ "type" => "text", "autofocus" => "autofocus" }
+    %p#phone
+      = @current_user.humanized_phone
+    %p#introduction
+      = t('advertising_event.verify_text')
+      %span
+        %a#resend-verification-token{:href => "#"}
+          = t('advertising_event.resend_phone_token')
+    .verify-button
+      %button.btn.btn-primary#verify-phone
+        = t('advertising_event.phone_registration')

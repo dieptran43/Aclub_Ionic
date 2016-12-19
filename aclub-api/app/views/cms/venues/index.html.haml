@@ -1,0 +1,5 @@
+%div
+  %span.title= t('cms.venues.name')
+  = link_to t('cms.actions.new'), new_cms_venue_path, class: 'btn new-record'
+= render 'layouts/search_form', base_url: cms_venues_path
+= render 'cms/venues/venues_list', venues: @venues

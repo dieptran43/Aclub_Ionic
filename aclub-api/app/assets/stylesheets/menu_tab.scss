@@ -1,0 +1,500 @@
+body, button, input, select, textarea, label {
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  color: #333;
+  font-size: 12px;
+}
+
+.modal-header{
+  border-bottom: none;
+}
+.modal-body{
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+button:disabled{
+  background-color: #BABABA;
+}
+
+#voucherDescription{
+  margin: 5%;
+}
+div {
+  display: block;
+}
+
+.minheight400 {
+  min-height: 400px;
+}
+
+.marginbottom30 {
+  margin-bottom: 30px;
+}
+
+.width810 {
+  width: 810px;
+}
+
+.left20ltr {
+  left:20px;
+}
+
+.resetpadding {
+  padding: 0;
+}
+
+.paddingbottom10 {
+  padding-bottom: 10px;
+}
+
+.paddingtop10 {
+  padding-top: 10px;
+}
+
+.paddingright10 {
+  padding-right: 10px;
+}
+
+.paddingleft10 {
+  padding-left: 10px;
+}
+
+.paddingleft5{
+  padding-left: 5px;
+}
+
+.paddingright5{
+  padding-right: 5px;
+}
+
+.overflowhidden {
+  overflow: hidden;
+}
+
+.paddingbottom35 {
+  padding-bottom: 35px;
+}
+
+.paddingtop5 {
+  padding-top: 5px;
+}
+
+.ltr .leftminus5ltr {
+  left: -5px;
+}
+.ltr .leftminus10ltr{
+  left: -10px;
+}
+.positionrelative {
+  position: relative;
+}
+
+.container {
+  zoom: 1;
+  margin-left: 0;
+}
+
+.width850 {
+  width: 850px;
+}
+
+.width820 {
+  width: 820px;
+}
+
+ul {
+  list-style: none;
+}
+
+.ltr .floatleftltr {
+  float: left;
+}
+
+.margin5 {
+  margin: 5px;
+}
+
+.width400 {
+  width: 400px;
+}
+
+.width350 {
+  width: 350px;
+}
+
+.colordarkgrey2, .hovercolordarkgrey2:hover, a:hover .ahovercolordarkgrey2, .hover .onhovercolordarkgrey2 {
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #36c;
+  cursor: pointer;
+}
+
+.backgroundcolorlightgrey1, .activebackgroundcolorlightgrey1:active, .hoverbackgroundcolorlightgrey1:hover, a:hover .ahoverbackgroundcolorlightgrey1, .hover .onhoverbackgroundcolorlightgrey1, .hover.onhoverbackgroundcolorlightgrey1 {
+  background-color: #f2f2f2;
+}
+
+a img, fieldset {
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+.backgroundgradientblacktransparent {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7)));
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(0,0,0,0)', endColorstr='rgba(0,0,0,0.7)');
+}
+
+.left0 {
+  left: 0;
+}
+
+.bottom0 {
+  bottom: 0px;
+}
+
+.positionabsolute {
+  position: absolute;
+}
+
+.widthfull {
+  width: 100%;
+}
+
+.paddingbottom6 {
+  padding-bottom: 6px;
+}
+
+.colorwhite, .activecolorwhite:active, .hovercolorwhite:hover, a:hover .ahovercolorwhite {
+  color: #fff;
+}
+
+.textshadowblacktransparent3 {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.fontweightbold {
+  font-weight: bold;
+}
+
+.lineheight20 {
+  line-height: 20px;
+}
+
+.fontsize16 {
+  font-size: 16px;
+}
+
+.textoverflowellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lineheight18 {
+  line-height: 18px;
+}
+
+.fontsize12 {
+  font-size: 12px;
+}
+
+.ltr .paddingright10ltr {
+  padding-right: 10px;
+}
+
+/**
+*  Normal box
+*/
+.ltr .floatleftltr {
+  float: left;
+}
+
+.margin5 {
+  margin: 5px;
+}
+
+.width195 {
+  width: 195px;
+}
+
+.width180 {
+  width: 180px;
+}
+
+.colordarkgrey2, .hovercolordarkgrey2:hover, a:hover .ahovercolordarkgrey2, .hover .onhovercolordarkgrey2 {
+  color: #333;
+}
+
+.displayblock {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #36c;
+  cursor: pointer;
+}
+
+.dialog_modal {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  z-index: 99999;
+}
+
+.dialog_modal_wrapper {
+  padding: 0 0 20px 0;
+}
+
+.dialog_modal_container {
+  position: relative;
+}
+
+.dialog_modal_header {
+  padding: 10px 15px 10px 15px;
+  background-color: #4c4c4c;
+}
+
+.dialog_modal_body {
+  background: #fff;
+}
+
+/***Modal Header**/
+.dialog_modal {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  z-index: 99999;
+}
+
+.dialog_modal_header {
+  padding: 10px 15px 10px 15px;
+  background-color: #4c4c4c;
+}
+
+.dialog_modal_popup {
+  height: 0;
+  overflow: visible;
+  position: relative;
+  margin: auto;
+}
+
+.dialog_modal_wrapper {
+  padding: 0 0 20px 0;
+}
+
+.dialog_modal_container {
+  position: relative;
+}
+
+.dialog_modal_body {
+  background: #fff;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.colorgrey2, .hovercolorgrey2:hover {
+  color: #7f7f7f;
+}
+
+.lineheight18 {
+  line-height: 18px;
+}
+
+.fontsize14 {
+  font-size: 14px;
+}
+
+.padding5 {
+  padding: 5px;
+}
+
+.dialog_modal_footer {
+  padding: 15px;
+  position: relative;
+}
+
+.ltr .dialog_modal_footer_extra_container {
+  left: 15px;
+}
+
+.dialog_modal_footer_extra_container {
+  position: absolute;
+  top: 10px;
+}
+
+.ltr .dialog_modal_footer_close {
+  margin: 0 0 0 350px;
+}
+
+.button_role_secondary {
+  color: #fff;
+  background-color: #1DC800;
+  border: none;
+  border-radius: 5px;
+}
+
+.button_size_large {
+  min-width: 70px;
+  min-height: 45px;
+  padding: 5px 8px;
+}
+
+.button {
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border-width: 1px;
+  border-style: solid;
+  text-transform: uppercase;
+}
+
+.btn-voucher {
+  background-color: #1DC800;
+  float:right;
+  color: #fff;
+}
+.well.well-sm {
+  padding-top:0;
+  padding-bottom:0;
+  bacground-coler:#cfcccc;
+}
+.portlet-body{
+  background-color:#e9e8e8 !important;
+}
+.portlet-heading{
+  background-color: #cfcccc;
+}
+.portlet-body{
+  padding-left :10px;
+  min-height: 150px;
+  margin-top: -20px;
+}
+.width550{
+  width: 550px;
+}
+.width210{
+  width: 210px;
+}
+.floatleft{
+  float:left;
+}
+.accodion{
+  height: 40px;
+  width: 40px;
+  padding: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #B0ADAD;
+}
+.phone{
+  text-align: center;
+  color: #1DC800;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #36c;
+  cursor: pointer;
+}
+
+#myCarousel .thumbnail {
+  margin-bottom: 0;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none !important;
+}
+
+.carousel-control {
+  color: #fff;
+  top: 40%;
+  color: #428BCA;
+  bottom: auto;
+  padding-top: 4px;
+  width: 30px;
+  height: 30px;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  color: #d9534f;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none !important;
+}
+
+.carousel-control.right {
+  left: auto;
+  right: -32px;
+}
+
+.carousel-control.left {
+  right: auto;
+  left: -32px;
+}
+
+.carousel-indicators {
+  bottom: -30px;
+}
+
+.carousel-indicators li {
+  border-radius: 0;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border: 1px solid #ccc;
+}
+
+.carousel-indicators .active {
+  width: 12px;
+  height: 12px;
+  background: #3276b1;
+  border-color: #3276b1;
+}
+
+.well-sm{
+  border-radius: 0px;
+  background-color: #D0CCCD;
+}
+
+#close_dialog{
+  float: right;
+  border-radius: 0px;
+}
+.clear-both{
+  clear:both;
+}
+
+.modal-body{
+  padding-bottom: 5px;
+}
+.category-name{
+  color:#333;
+}

@@ -1,0 +1,9 @@
+#myCarousel.carousel.slide{"data-ride" => "carousel", "data-interval" => "false"}
+  .carousel-inner{:role => "listbox"}
+    - images.each_with_index do |image, index|
+      %div{ class: index == 0 ? "item active" : "item" }
+        %img{:height => "200", :src => image.try(:url), :width => "200"}
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
+    %span.fa.fa-arrow-circle-left{"aria-hidden" => "true"}
+  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
+    %span.fa.fa-arrow-circle-right{"aria-hidden" => "true"}

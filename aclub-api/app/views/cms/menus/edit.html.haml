@@ -1,0 +1,4 @@
+%h3
+  Edit menu
+= render "shared/menu_form", menu: @menu, preview: false, restaurant: nil
+= link_to "Go Back To restaurant", edit_cms_restaurant_path(@menu.owner.id)

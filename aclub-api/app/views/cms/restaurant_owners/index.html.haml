@@ -1,0 +1,29 @@
+%div
+  %span.title= t('cms.restaurant_owners.name')
+  = link_to t('cms.restaurant_owners.new'), new_cms_admin_path, class: 'btn new-record'
+= render 'layouts/search_form', base_url: cms_admins_path
+.row.index-table-row
+  .col-md-1
+    = t('cms.restaurant_owners.id')
+  .col-md-2
+    = t('cms.restaurant_owners.name_attribute')
+  .col-md-2
+    = t('cms.restaurant_owners.phone_attribute')
+  .col-md-3
+    = t('cms.restaurant_owners.email_attribute')
+  .col-md-4
+    = t('cms.actions.label')
+- @owners.each_with_index do |owner, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = owner.id
+    .col-md-2
+      = owner.name
+    .col-md-2
+      = owner.phone
+    .col-md-3
+      = owner.email
+    .col-md-4
+      = link_to t('cms.actions.show'), cms_admin_path(owner), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), cms_admin_path(owner), class: 'btn btn-danger', method: :delete
+= paginate @owners

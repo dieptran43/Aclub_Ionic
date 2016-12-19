@@ -1,0 +1,7 @@
+- if @advertising_event.try(:enabled)
+  %div#home-page-background
+    = image_tag(@advertising_event.home_page_background.url)
+  %div
+    = link_to t('advertising_event.facebook_sign_in'), "http://#{request.host}:#{request.port}/auth/facebook?scope=email&advertising_event_id=#{@advertising_event.id}", class: 'btn btn-primary', id: 'facebook-sign-in'
+- else
+  Sự kiện đã tạm dừng. Xin vui lòng quay trở lại sau.

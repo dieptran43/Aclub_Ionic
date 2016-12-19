@@ -1,0 +1,38 @@
+= nested_form_for [:owner, venue], html: { multipart: true } do |f|
+  .field
+    = f.label :name, t('cms.venues.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :description, t('cms.venues.description')
+    = f.text_area :description, class: 'form-control', disabled: preview
+  .field
+    = f.label :full_address, t('cms.venues.full_address_hint')
+    = f.text_field :full_address, class: 'form-control', disabled: preview
+    = f.hidden_field :latitude, step: 'any'
+    = f.hidden_field :longitude, step: 'any'
+  .col-md-8#map{ class: "google-map" }
+  .field{ style: "height: 200px" }
+  .field
+    = f.label :website, t('cms.venues.website')
+    = f.text_field :website, class: 'form-control', disabled: preview  
+  .field
+    = f.label :formatted_phone_number, t('cms.venues.phone')
+    = f.text_field :formatted_phone_number, class: 'form-control', disabled: preview
+  - if preview
+    .field
+      = f.label :opening_hours, t('cms.venues.opening_hours')
+      = opening_hours_tag(venue.opening_hours)
+    .field
+      = link_to t('cms.venues.manage_photos'), owner_venue_photos_path(venue)
+    .field
+      = link_to t('cms.venues.manage_reviews'), owner_venue_reviews_path(venue)
+  .field
+    - if preview
+      = link_to t('cms.actions.go_to_edit'), edit_owner_venue_path(venue), class: "btn btn-info"
+    - else
+      = f.submit "Submit", class: "btn btn-info"
+- unless preview
+  %h3
+    = t('cms.coupons.under_restaurant', restaurant_name: venue.name)
+= render "cms/coupons/list_of_coupons", coupons: venue.coupons, show_action: true
+    

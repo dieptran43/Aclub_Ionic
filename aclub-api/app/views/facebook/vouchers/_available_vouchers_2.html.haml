@@ -1,0 +1,23 @@
+#page-wrapper.paddingleft5.paddingright5
+  .page-content.page-content-ease-in
+    - coupons.each_with_index do |coupon, index|
+      .row.paddingtop5
+        %img.backgroundcolorlightgrey1{:src => coupon.home_page_background.url, :width => '100%'}
+        .portlet.portlet-red
+          .portlet-heading
+            .portlet-title
+              .well.well-sm
+                .width550.floatleft
+                  %h4 #{coupon.name}
+                .width210.floatleft
+                  %a.btn.btn-voucher{:onclick => "showModalPlayAgame(this, '#{coupon.home_page_background.url}', '#{coupon.id}');"}
+                    Nhận voucher
+                    %input.coupon-description{:type => "hidden", :value => h(coupon.description)}
+                .updown
+                  %a.accodion{:href => ".panel#{index}", 'data-parent' => '#accordion', 'data-toggle' => 'collapse', :style =>'float:right;'}
+                    %i.fa.fa-chevron-down
+                .clearfix
+          .panel-collapse.collapse.in{:class => "panel#{index}"}
+            .portlet-body
+              #{h(coupon.description)}          
+          

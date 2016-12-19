@@ -1,0 +1,18 @@
+.field
+  = f.label :profile_image
+  = f.file_field :profile_image, class: 'form-control', disabled: preview
+  .image-preview{ id: "image-preview-#{f.options[:child_index]}" }
+    = image_tag restaurant.profile_image_url
+
+= f.label :iamges, "Image count #{restaurant.images_count}"
+.field#restaurant-images
+  - restaurant.all_images.each do |image|
+    = image_tag(image[:origin])
+= f.label :comments, "Foody Comment count #{restaurant.foody_comments.count} (Nguon Foody.vn)"
+= f.label :comments, "Aclub Comment count #{restaurant.comments.count} (Nguon Aclub.vn)"
+.field#restaurant-comments
+  %ul
+    - restaurant.all_comments.each do |comment|
+      %li
+        %label= comment.try(:content)
+        %label= "Rating: #{comment.try(:rate)}"

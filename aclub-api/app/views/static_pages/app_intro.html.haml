@@ -1,0 +1,298 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "vi", "http-equiv" => "content-language"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "Template", :name => "author"}/
+    %meta{:content => "&copy; Template", :name => "COPYRIGHT"}/
+    %meta{:content => "noodp,index,follow", :name => "robots"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "website title", :property => "og:title"}/
+    %meta{:content => "vi_VN", :property => "og:locale"}/
+    %meta{:content => "website link", :property => "og:url"}/
+    %meta{:content => "image description", :property => "og:image"}/
+    %meta{:content => "website description", :property => "og:description"}/
+    %meta{:content => "website name", :property => "og:site_name"}/
+    %meta{:content => "Facebook Admin ID page", :property => "fb:admins"}/
+    %link{:href => "img/favicon.ico", :rel => "shortcut icon"}/
+    %title Aclub - Index
+    / Core CSS
+    = stylesheet_link_tag "css/bootstrap.min.css"
+    = stylesheet_link_tag "css/owl.carousel.min.css"
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag "css/animate.css"
+    = stylesheet_link_tag "css/style.css"
+    = javascript_include_tag "static_page/jquery-1.11.3.min.js"
+    = javascript_include_tag "static_page/bootstrap.min.js"
+    = javascript_include_tag "static_page/owl.carousel.min.js"
+    = javascript_include_tag "static_page/jquery.counter.js"
+    = javascript_include_tag "static_page/common.js"
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,700italic,900,900italic,100,100italic", :rel => "stylesheet", :type => "text/css"}/
+    /[if (gte IE 6)&amp;(lte IE 8)]
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+      <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+    / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+  %body
+    .navigator
+      .container
+        .logo
+          = render "shared/main_logo", url: "img/logo.png"
+        .expand-menu
+          %i.fa.fa-bars
+        = render "shared/static_page_top_banner"
+        / menu
+      / container
+    / navigator
+    .main-slider
+      .container
+        .ms-content
+          .ms-caption
+            %h1 Ứng dụng đặt bàn và khuyến mãi địa điểm ăn uống.
+            .ms-button
+              %a{:href => "#"}
+                = image_tag("img/btn-ios.png")
+              %a{:href => "#"}
+                = image_tag("img/btn-android.png")
+          .handphone
+            = image_tag("img/handphone.png")
+        / ms-content
+      / container
+    / main-slider
+    .container
+      .intro-app
+        .ia-item
+          .ia-content
+            .ia-title
+              200 Khuyến mãi của các nhà hàng chỉ có trên
+              %span.text-success AClub
+            .ia-desc Setup a professional storefront within minutes.
+            .ia-button
+              %a.btn.btn-success.btn-2row{:href => "#"}
+                Tham khảo
+                = succeed "khuy\u{1ebf}n" do
+                  %br/
+                mãi (KM)
+          .ia-img
+            = image_tag("data/app1.png")
+          .clearfix
+        / ia-item
+        .ia-item
+          .ia-content
+            .ia-title
+              1,000 Nhà hàng liên kết tính năng đặt bàn trên
+              %span.text-success AClub
+            .ia-desc Setup a professional storefront within minutes.
+          .ia-img
+            = image_tag("data/app2.png")
+          .clearfix
+        / ia-item
+        .ia-item
+          .ia-content
+            .ia-title
+              200,000 dữ liệu địa điểm nhà hàng cập nhật trên
+              %span.text-success AClub
+            .ia-desc Setup a professional storefront within minutes.
+          .ia-img
+            = image_tag("data/app3.png")
+          .clearfix
+        / ia-item
+        .ia-item
+          .ia-content
+            .ia-title
+              1,000 Nhà hàng phát hành membership cho khách hàng chỉ có trên
+              %span.text-success AClub
+            .ia-desc Setup a professional storefront within minutes.
+          .ia-img
+            = image_tag("data/app4.png")
+          .clearfix
+        / ia-item
+      / intro-app
+    / container
+    .box-stone
+      .container
+        #stoneslider.owl-carousel
+          .stone-item
+            .stone-title "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            .stone-desc - Frank Rapacciuolo -
+          .stone-item
+            .stone-title "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text"
+            .stone-desc - Lorem Ipsum -
+          .stone-item
+            .stone-title "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            .stone-desc - Cicero in 45 BC -
+        / container
+      / owl-carousel
+    / box-stone
+    .box-contact
+      .container
+        .contact-title
+          .lb-name Contact
+        .row
+          .col-sm-9
+            .form
+              .row.sm-reset-10
+                .col-sm-6.padding-all-10
+                  .form-group
+                    %input.form-control.text-icon-user{:name => "", :placeholder => "Full name", :type => "text"}/
+                / col
+                .col-sm-6.padding-all-10
+                  .form-group
+                    %input.form-control.text-icon-email{:name => "", :placeholder => "Email address", :type => "text"}/
+                / col
+              / row
+              .form-group
+                %select.form-control
+                  %option Budget
+              .form-group
+                %select.form-control
+                  %option Timeline
+              .form-group
+                %textarea.form-control{:name => "", :placeholder => "Tell me about your project briefly", :rows => "4"}
+              .form-group.text-right
+                %button.btn.btn-danger.btn-lg.text-uppercase{:type => "submit"} Send
+            / form
+          / col
+          .col-sm-3
+            .contact-smalltitle Location
+            .contact-address 203/3B Trần Kế Xương, Q Phú Nhuận, HCM
+            .contact-smalltitle I AM SOCIAL
+            .contact-social
+              %ul
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                    Facebook
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                    Twitter
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-linkedin
+                    Linkedin
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-google-plus
+                    Google +
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-rss
+                    RSS
+          / col
+        / row
+      / container
+    / box-contact
+    .box-green
+      .container
+        .green-location
+      / container
+    / box-green
+    .footer
+      .footer-col
+        .container
+          .row.sm-reset-5
+            .col-sm-3.padding-all-5
+              .footer-label
+                Category
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} Khuyến mãi hot
+                  %li
+                    %a{:href => "#"} Địa điểm
+                  %li
+                    %a{:href => "#"} Tin tức
+                  %li
+                    %a{:href => "#"} Tính năng ứng dụng
+                  %li
+                    %a{:href => "#"} AClub Page - Quản lý địa điểm
+                  %li
+                    %a{:href => "#"} Chúng tôi
+                  %li
+                    %a{:href => "#"} Liên hệ
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Customer Service
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} My Wishlist
+                  %li
+                    %a{:href => "#"} My Order
+                  %li
+                    %a{:href => "#"} Orders And Returns
+                  %li
+                    %a{:href => "#"} Contacts
+                  %li
+                    %a{:href => "#"} Site Map
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                My account
+                %i.fa.fa-plus
+              .footer-content
+                %ul
+                  %li
+                    %a{:href => "#"} About Us
+                  %li
+                    %a{:href => "#"} Privacy Policy
+                  %li
+                    %a{:href => "#"} Your Account
+                  %li
+                    %a{:href => "#"} Address Book
+                  %li
+                    %a{:href => "#"} Product Reviews
+              / footer-content
+            / col
+            .col-sm-3.padding-all-5
+              .footer-label
+                Newsletter
+                %i.fa.fa-plus
+              .footer-content
+                %p Join thousands of other people subscribe to our news
+                .box-email
+                  %input.form-control{:name => "", :placeholder => "Input your email", :type => "text"}/
+                  %button.btn-email{:type => "submit"}
+                    %i.fa.fa-play
+                .box-social
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                  %a{:href => "#"}
+                    %i.fa.fa-google-plus
+                  %a{:href => "#"}
+                    %i.fa.fa-tumblr
+                  %a{:href => "#"}
+                    %i.fa.fa-youtube
+                  %a{:href => "#"}
+                    %i.fa.fa-instagram
+                  %a{:href => "#"}
+                    %i.fa.fa-rss
+                / box-social
+              / footer-content
+            / col
+          / row
+        / container
+      / footer-col
+      .copyright
+        .container
+          .go-top
+            Top
+            %i.fa.fa-caret-up
+          %p
+            Powered with love by
+            = succeed "." do
+              %a{:href => "#"} Netbrand

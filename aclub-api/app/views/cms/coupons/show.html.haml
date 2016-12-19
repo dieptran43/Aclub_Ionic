@@ -1,0 +1,4 @@
+%div
+  %span.title= t('cms.coupons.details')
+= render 'form', coupon: @coupon, preview: true, edit: true
+= render 'user_coupons_list', user_coupons: @coupon.user_coupons.includes(:user)

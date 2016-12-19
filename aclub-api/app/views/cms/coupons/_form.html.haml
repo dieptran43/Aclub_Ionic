@@ -1,0 +1,79 @@
+= form_for [:cms, coupon] do |f|
+  .field
+    = f.label :description, t('cms.coupons.description')
+    = f.text_area :description, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :short_description, t('cms.coupons.short_description')
+    = f.text_area :short_description, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :restaurant, t('cms.coupons.name_attribute')
+    %input{ type: 'text', id: 'restaurant-name-search'}
+    = link_to 'Search', '#', id: 'restaurant-name-search', class: 'btn btn-primary'
+    - if edit
+      = f.select :restaurant_id, Restaurant.where(id: coupon.restaurant_id).pluck(:name, :id), { }, { class: 'form-control', disabled: preview }
+    - else
+      = f.select :restaurant_id, Restaurant.order('name').page(1).pluck(:name, :id), { }, { class: 'form-control', disabled: preview }
+
+  .field
+    = f.label :priority, t('cms.coupons.priority')
+    = f.number_field :priority, class: 'form-control', disabled: preview
+
+  = f.label :start_date, t('cms.coupons.start_date')
+  .field.input-group
+    %span.input-group-addon
+      %i.fa.fa-calendar#coupon-start-date-calendar
+    = f.text_field :start_date, 'data-provide' => 'datepicker', class: 'form-control', value: coupon.start_date.try(:strftime, "%d-%m-%Y"), disabled: preview
+
+  = f.label :end_date, t('cms.coupons.end_date')
+  .field.input-group    
+    %span.input-group-addon
+      %i.fa.fa-calendar#coupon-end-date-calendar
+    = f.text_field :end_date, 'data-provide' => 'datepicker', class: 'form-control', value: coupon.end_date.try(:strftime, "%d-%m-%Y"), disabled: preview
+
+  = f.label :quantity, t('cms.coupons.quantity')
+  .field.input-group
+    %span.input-group-addon
+      %i.fa.fa-square-o#infinity-quantity
+    = f.number_field :quantity, class: 'form-control', disabled: preview
+
+  = f.label :number_of_free_volka, t('cms.coupons.number_of_free_volka')
+  .field.input-group
+    = f.number_field :number_of_free_volka, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :image, t('cms.coupons.image')
+    = f.file_field :image, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-#{f.options[:child_index]}" }
+      = image_tag coupon.image.url
+
+  = f.label :discount, t('cms.coupons.discount')
+  .field.input-group
+    %span.input-group-addon
+      %i= t('cms.coupons.discount_cash')
+    = f.text_field :cash_discount, class: 'form-control', disabled: preview
+  .field.input-group
+    %span.input-group-addon
+      %i= t('cms.coupons.discount_bill')
+    = f.text_field :bill_discount, class: 'form-control', disabled: preview
+  .field.input-group
+    %span.input-group-addon
+      %i= t('cms.coupons.discount_food')
+    = f.text_field :food_discount, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :required_minimum_invitees, t('cms.coupons.required_minimum_invitees')
+    = f.number_field :required_minimum_invitees, class: 'form-control', disabled: preview
+
+  .field
+    = f.label :code, t('cms.coupons.code')
+    = f.text_field :code, class: 'form-control', disabled: true, placeholder: t('cms.coupons.code_placeholder')
+
+  .field
+    - if preview
+      - if current_admin
+        = link_to t('cms.actions.go_to_edit'), edit_cms_coupon_path(coupon), class: "btn btn-info"
+      - elsif current_restaurant_owner
+    - else
+      = f.submit "Submit", class: "btn btn-info"

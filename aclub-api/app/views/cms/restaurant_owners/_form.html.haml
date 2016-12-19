@@ -1,0 +1,23 @@
+= form_for [:cms, restaurant_owner] do |f|
+  .field
+    = f.label :phone, t('cms.restaurant_owners.phone_attribute')
+    = f.text_field :phone, class: 'form-control', disabled: preview
+  .field
+    = f.label :email, t('cms.restaurant_owners.email_attribute')
+    = f.text_field :email, class: 'form-control', disabled: preview
+  .field
+    = f.label :password, t('cms.restaurant_owners.password_attribute')
+    = f.text_field :password, class: 'form-control', disabled: preview || restaurant_owner.persisted?
+  .field
+    = f.label :name, t('cms.restaurant_owners.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :restaurant, t('cms.coupons.name_attribute')
+    %input{ type: 'text', id: 'restaurant-name-search'}
+    = link_to 'Search', '#', id: 'restaurant-name-search', class: 'btn btn-primary'
+    = select_tag :restaurant_id, options_for_select(Restaurant.index_by_name(Restaurant.find_by(owner: restaurant_owner).try(:name)).reorder('name').page(1).pluck(:name, :id)),class: 'form-control', disabled: preview
+  .field
+    - if preview
+      = link_to t('cms.actions.go_to_edit'), edit_cms_admin_path(restaurant_owner.id), class: "btn btn-info"
+    - else
+      = f.submit "Submit", class: "btn btn-info"

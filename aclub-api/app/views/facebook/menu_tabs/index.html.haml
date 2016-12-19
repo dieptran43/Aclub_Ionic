@@ -1,0 +1,42 @@
+#fb-root
+%script{:src => "https://connect.facebook.net/en_US/all.js"}
+:javascript
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '879347998845966',
+      status: true,
+      cookie: true,
+      xfbml: true
+    });
+    FB.Canvas.setAutoGrow();
+  };
+  (function (d) {
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+  } (document));
+.minheight400
+  .width810
+    .paddingtop10.paddingbottom10
+      %ul.resetpadding
+        %li.width810
+          = render "available_menus", coupons: @available_menu
+#modal_have_voucher.modal.fade{:style => "display: none;"}
+  .modal-dialog
+    .modal-content{:style => "width: 420px;"}
+      .modal-header{:style => "color: #fff; background: #1DC800"}
+        %h4.modal-title.menu-name
+      .modal-body.dialog_modal_container
+        #modal_img
+        #voucherDescription
+        .padding5.margin-left-4.colorgrey2
+          .fb-like.floatleft{"data-action" => "like", "data-href" => "https://www.facebook.com/aclub.vietnam", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false"}
+          %button#close_dialog.btn.btn-default{:type => "button"} Đóng
+          .clear-both
+
+
+
+
+
+

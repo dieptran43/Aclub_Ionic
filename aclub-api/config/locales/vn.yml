@@ -1,0 +1,271 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vn:
+  base:
+    api:
+      user_coupons:
+        not_enough_accepted_invitation: 'Không thể nhận coupon. Cần đủ số lượng lời mời được chấp nhận.'
+        not_found: 'Bạn không sở hữu coupon này.'
+        no_more_quantity: 'Không thể nhận coupon. Coupon đã được nhận hết.'
+      not_found: 'Dữ liệu không tồn tại'
+      unprocessable_entity: 'Hành động không thể hoàn tất'
+      third_party:
+        linked_with_other_user: 'Facebook account đã được link đến tài khoản khác.'
+        invalid_uid: 'uid không hợp lệ'
+        error_when_fetching_user_info: 'Không thể lấy được thông tin người dùng'
+        missing_parametters: 'missing parametters'
+  controller:
+    sessions:
+      not_found: 'Tài khoản không tồn tại'
+      invalid_password: 'Mật khẩu không đúng'
+    users:
+      invalid_verification_code: 'Mã xác nhận không đúng'
+      invalid_password: 'Mật Khẩu Không Đúng'
+  activerecord:
+    errors:
+      models:
+        comment:
+          attributes:
+            rate:
+              inclusion: "phải nằm trong khoảng 1..10"
+        user:
+          attributes:
+            password:
+              too_short: 'phải có ít nhất 6 ký tự'
+            email:
+              invalid: 'không đúng định dạng'
+              taken: 'đã được sử dụng'
+            phone:
+              taken: 'đã được đăng ký'
+              invalid: 'không hợp lệ. Số điện thoại phải có định dạng sau: 84969696969'
+              blank: 'bị bỏ trống'
+              cannot_change: 'không thể thay đổi'
+            name:
+              blank: 'Tên không hợp lệ.'
+      messages:
+        record_invalid: "%{errors}"
+    attributes:
+      user:
+        password: 'Mật khẩu'
+        phone: 'Số điện thoại'
+  cms:
+    home:
+      log_in: Đăng Nhập
+      email: Điền Email
+      password: Điền Mật Khẩu
+      name: Home
+      log_out: Đăng Xuất
+    restaurants:
+      id: ID
+      name: Nhà Hàng
+      name_attribute: Tên
+      address: Địa chỉ
+      area: Khu vực
+      district: Quận
+      city: Thành phố
+      phone: phone
+      category: category
+      total_comments: Tổng số lượng comments
+      total_photos: Tổng số lượng photo
+      title: Nhà Hàng
+      number_of_coupon: Số luợng coupon có hiệu lực
+    coupons:
+      title: Trang Coupon
+      name: Coupon
+      id: ID
+      under_restaurant: "Những Coupon Thuộc nhà hàng %{restaurant_name}"
+      name_attribute: Tên Nhà Hàng (Hãy điền tên vào ô và nhấn search để filter nhà hàng)
+      description: Miêu Tả
+      start_date: Ngày có hiệu lưc
+      end_date: Ngày Hết Hạn
+      image: Ảnh Đại Diện
+      required_minimum_invitees: Số luợng mời bạ tối thiểu
+      edit: Sửa Coupon
+      new: Thêm Coupon
+      details: Coupon Chi Tiết
+      short_description: Miêu Tả Ngắn Ngọn
+      quantity: Tổng Số Luợng Phát Hành (tick ô bên dưới để set không giới hạn số lượng coupon)
+      code: "Mã hiệu của coupon"
+      code_placeholder: "Mã hiệu của coupon sẽ do hệ thống tự động thêm vào để tránh trùng lặp"
+      status: Tình Trạng
+      used: Coupon đã sử dụng
+      available: Coupon chưa sử dụng
+      priority: Chọn xếp hạng của Coupon trên trang chủ (số càng lớn sẽ càng được ưu tiên)
+      discount: Hình thức khuyến mãi
+      discount_cash: "Bằng tiền (ví dụ 100,000 VND)"
+      discount_bill: "Giảm giá bill (ví dụ 10%)"
+      discount_food: Bằng món ăn
+      number_of_free_volka: Số lượng free volka có trong 1 coupon
+    venues:
+      id: ID
+      image: "Ảnh"
+      remove_image: Xóa Ảnh này
+      add_image: Thêm Ảnh
+      title:  Địa Điểm Page
+      name: Địa Điểm
+      name_attribute: Tên
+      description: Miêu Tả
+      edit: Sửa Địa Điểm
+      new: Thêm Địa Điểm
+      details: Địa Điểm Chi Tiết
+      full_address_hint: Địa chỉ đầy đủ (bạn có thể phải tự thêm số nhà vì google map không trả về số nhà trong một số trường hợp)
+      opening_hours: Giờ mở cửa
+      no_opening_hours: Chưa có dữ liệu về giờ mở cửa
+      google_place_images: Google Place Images 
+      images: Images
+      manage_photos: Quản lý photo của nhà hàng này
+      manage_reviews: Quản lý review của nhà hàng này
+      location: Địa điểm 
+      restaurant: Nhà hàng
+      voucher: Voucher
+      accum: Tích lũy
+      order: Đặt bàn
+      payment: Thanh Toán
+      review: Đánh giá
+      comment: Comment
+      user: Người dùng
+      total_reviews: Tổng số lượng comment
+      total_photos: Tổng số lượng photo
+    actions:
+      label: Hành Động
+      edit: Sửa
+      show: Xem
+      delete: Xóa
+      new: Thêm
+      go_to_edit: Sang Trang Sửa
+    users:
+      name: Người Dùng
+      name_attribute: Tên
+      phone_attribute: Số điện thoại
+      email_attribute: Email
+      lucky_code: Mã nhận thuởng
+      used_coupon: Coupon đã sử dụng
+      unused_coupon: Coupon chưa sử dụng 
+      age_range: Độ Tuổi
+      locaton: location
+    advertising_events:
+      name: Event Quảng Cáo
+      name_attribute: Tên
+      description: Miêu Tả
+      winning_rate: Tỷ lệ thắng
+      winner_limit: Giới hạn số người thắng
+      url: URL
+      reference_link_1: Full Link (http) dẫn đi trong phần kết quả sự kiện (link ở phía trên)
+      reference_link_2: Full Link (http) dẫn đi trong phần kết quả sự kiện (link 2)
+      enabled: Bỏ Check Phía Dưới để Pause Sự Kiện
+      user_id: Chủ nhà hàng
+    partners:
+      title: Trang Đối tác
+      name: Đối tác
+      name_attribute: Tên Đối tác
+      new: Thêm Đối tác
+      details: Chi tiết thông tin Đối tác
+      edit: Sửa thông tin Đối tác
+      url: Link liên kết
+      active: Bỏ Check Phía Dưới để ngừng kích hoạt đối tác
+      image: Ảnh
+      order: Thứ tự hiển thị
+    restaurant_owners:
+      new: Tạo mới tài khoản cho chủ nhà hàng
+      name: Chủ nhà hàng
+      name_attribute: Tên
+      phone_attribute: Số điện thoại
+      email_attribute: Email
+      details: Chủ nhà hàng Chi Tiết
+      password_attribute: Password cho chủ nhà hàng (chỉ thêm vào khi tạo mới). Không hiển thị sau khi tạo chủ nhà hàng mà được gửi đến hòm mail của chủ nhà hàng
+      venues: Chọn nhà hàng (chỉ những nhà hàng chưa có chủ ở trong danh sách, có thể chọn nhiều nhà hàng)
+    menus:
+      name: Menu
+      name_attribute: Tên
+      number_of_components: số lượng component
+      category: "Thể loại (ăn sáng, ăn trưa, ăn tối, vân vân)"
+      price: Giá cả (VND)
+    restaurant_categories:
+      name: Danh mục nhà hàng
+      name_attribute: Tên
+      alias: Alias
+    wait_list_reviews:
+      id: id
+      status: status
+      restaurant_name: restaurant_name
+    facebook:
+      start_page: Menu And Voucher Tab
+  mailer:
+    welcome: Chào mừng bạn đã đăng ký tài khoản thành công trên Aclub
+    token: "Đây là mã xác nhận của bạn %{token}"
+  devise:
+    failure:
+      admin:
+        invalid: "Sai email hoặc pasword"
+        not_found_in_database: "Sai email hoặc pasword"
+        signed_in: "Đăng nhập thành công"
+  advertising_event:
+    register_label: Đăng ký sự kiện sẽ yêu cầu bạn đăng nhập facebook
+    facebook_sign_in: Đăng nhập bằng Facebook
+    name: Tên
+    email: Email
+    introduction: Để hoàn thành đăng ký, bạn cần nhập số điện thoại. Chúng tôi sẽ gửi mã xác nhận cho bạn. Sau khi xác nhận số điện thoại, đăng ký sẽ hoàn tất
+    phone: Số điện thoại
+    verification_code: Mã xác nhận
+    phone_registration: NHẬN ƯU ĐÃI
+    verify_text: Hãy nhập mã xác nhận đã được gửi qua SMS. Nếu vẫn không nhận được mã xác nhận bạn hãy thử cách sau. Không nhận được SMS?
+    invalid_verification_code: Bạn đã nhập sai mã xác nhận
+    general_error: Hệ thống không thể thao tác lúc này. Xin chờ trong giây lát
+    resend_phone_token: Gửi lại mã
+    good_luck: Chúc bạn may mắn lần sau
+    website_kpup: WEBSITE K-PUP
+    other_event: THAM KHẢO ƯU ĐÃI KHÁC
+    reward_introduction: Hãy mang đến nhà hàng khi bạn có nhu cầu sử dụng
+  sign_up:
+    header_text: Bạn đang tạo tài khoản nhà hàng trên aclub
+    step_1_text: "Bước 1:"
+    step_1_content: Điền đầy đủ thông tin
+    step_1_note: "*đây là thông tin tài khoản sở hữu nhà hàng của bạn*"
+    email: Email
+    password: Mật khẩu
+    password_confirmation: Nhập lại mật khẩu
+    name: Tên người đại diện
+    phone: Số điện thoại
+    button: Đăng Ký
+    step_2_text: "Bước 2:"
+    step_2_content: "Xác nhận tài khoản Fanpage Facebook & Google+ của nhà hàng"
+    step_2_note: "*bước xác nhận này để hiển thị lượng người truy cập, like, share, comment của nhà hàng*"
+    facebook_sign_in: Fanpage Facebook
+    select_fanpage: "Xin hãy chọn fanpage cho nhà hàng của bạn. Nếu Fanpage của bạn chưa có menu tab, chúng tôi sẽ thêm vào tự động. Bạn có thể dễ dàng quản lý menu tab trong tương lai."
+  owner:
+    advertising_events:
+      title: 'Event quảng cáo'
+      name: Event Quảng Cáo
+      name_attribute: Tên
+      description: Miêu Tả
+      winning_rate: Tỷ lệ thắng
+      winner_limit: Giới hạn số người thắng
+      url: URL
+      reference_link_1: Full Link (http) dẫn đi trong phần kết quả sự kiện (link ở phía trên)
+      reference_link_2: Full Link (http) dẫn đi trong phần kết quả sự kiện (link 2)
+      enabled: Bỏ Check Phía Dưới để Pause Sự Kiện
+      user_id: Chủ nhà hàng
+    facebook_fanpages:
+      index: List of Facebook Fanpage
+      name: Tên
+      id: id
+      facebook_page_link: Facebook Page Link

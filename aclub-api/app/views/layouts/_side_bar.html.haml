@@ -1,0 +1,50 @@
+- if current_admin.admin?
+  .link
+    %i.fa.fa-home
+    = link_to t('cms.home.name'), cms_venues_path
+  .link
+    %i.fa.fa-cutlery
+    = link_to t('cms.restaurants.name'), cms_restaurants_path
+  .link
+    %i.fa.fa-building
+    = link_to t('cms.venues.name'), cms_venues_path
+  .link
+    %i.fa.fa-money
+    = link_to t('cms.coupons.name'), cms_coupons_path
+  .link
+    %i.fa.fa-money
+    = link_to t('cms.restaurant_categories.name'), cms_restaurant_categories_path
+  .link
+    %i.fa.fa-users
+    = link_to t('cms.users.name'), cms_users_path
+  .link
+    %i.fa.fa-server
+    = link_to t('cms.advertising_events.name'), cms_advertising_events_path
+  .link
+    %i.fa.fa-user-plus
+    = link_to t('cms.partners.name'), cms_partners_path
+  .link
+    %i.fa.fa-users
+    = link_to t('cms.restaurant_owners.name'), cms_admins_path
+- elsif current_admin.owner? && Restaurant.find_by(owner: current_admin).nil?
+  .link
+    %i.fa.fa-home
+    = link_to t('cms.home.name'), owner_facebook_fanpages_path
+  .link
+    %i.fa.fa-money
+    = link_to t('cms.restaurants.name'), owner_restaurants_path
+  .link
+    %i.fa.fa-server
+    = link_to t('cms.advertising_events.name'), owner_advertising_events_path
+  .link
+    %i.fa.fa-cutlery
+    = link_to t('cms.menus.name'), owner_menus_path
+  .link
+    %i.fa.fa-credit-card
+    = link_to t('cms.venues.voucher'), owner_coupons_path
+  .link
+    %i.fa.fa-facebook
+    = link_to t('cms.facebook.start_page'), facebook_startpage_path
+.link
+  %i.fa.fa-sign-out
+  = link_to t('cms.home.log_out'), destroy_admin_session_path, method: :delete

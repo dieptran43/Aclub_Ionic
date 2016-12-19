@@ -1,0 +1,29 @@
+= nested_form_for [:cms, menu] do |f|
+  .field
+    = f.label :name, t('cms.menus.name_attribute')
+    = f.text_field :name, class: 'form-control', disabled: preview
+  .field
+    = f.label :category, t('cms.menus.category')
+    = f.select :menu_category_id, MenuCategory.order('name').collect { |p| [ p.name, p.id ] }, { include_blank: true }, { class: 'form-control', disabled: preview }
+  .field
+    = f.label :price, t('cms.menus.price')
+    = f.number_field :price, class: 'form-control', disabled: preview
+  .field
+    = f.fields_for :menu_components do |component_form|
+      = component_form.text_field :content, disabled: preview
+      = component_form.link_to_remove "Remove this component" unless preview
+  .field
+    = f.link_to_add "Add a component", :menu_components unless preview
+  .field
+    = f.label :image
+    = f.file_field :image, class: 'form-control', disabled: preview
+    .image-preview{ id: "image-preview-" }
+      = image_tag menu.image.url
+  - if restaurant
+    .field
+      = f.hidden_field :owner_id, value: restaurant.id
+      = f.hidden_field :owner_type, value: restaurant.class
+  - if preview
+    = link_to t('cms.actions.go_to_edit'), edit_owner_menu_path(menu.id), class: "btn btn-info"
+  - else
+    = f.submit "Submit", class: "btn btn-info"

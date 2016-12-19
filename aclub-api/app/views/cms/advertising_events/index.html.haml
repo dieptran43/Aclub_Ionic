@@ -1,0 +1,25 @@
+%div
+  %span.title= t('cms.advertising_events.name')
+  = link_to t('cms.actions.new'), new_cms_advertising_event_path, class: 'btn new-record'
+.row.index-table-row
+  .col-md-1
+    = t('cms.advertising_events.id')
+  .col-md-4
+    = t('cms.advertising_events.name_attribute')
+  .col-md-3
+    = t('cms.advertising_events.value')
+  .col-md-4
+    = t('cms.actions.label')
+- @advertising_events.each_with_index do |advertising_event, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = advertising_event.id
+    .col-md-4
+      = advertising_event.name
+    .col-md-3
+      = advertising_event.description
+    .col-md-4
+      = link_to t('cms.actions.edit'), edit_cms_advertising_event_path(advertising_event.id), class: 'btn btn-primary'
+      = link_to t('cms.actions.show'), cms_advertising_event_path(advertising_event.id), class: 'btn btn-info'
+      = link_to t('cms.actions.delete'), cms_advertising_event_path(advertising_event.id), class: 'btn btn-danger', method: :delete
+= paginate @advertising_events

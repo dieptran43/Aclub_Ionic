@@ -1,0 +1,22 @@
+#mange-photos
+  %h3
+    Photos form google places
+  - @google_place_images.each do |image|
+    = image_tag(image.url, height: 200, wdith: 200)
+  %h3
+    Photos form facebook
+  - @facebook_photos.each do |image|
+    = image_tag(image.url, height: 200, wdith: 200)
+  = form_for owner_venue_photos_path do |f|
+    = f.submit "Crawl New Facebook Data", class: 'btn btn-success'
+  = nested_form_for [:owner, @venue], html: { multipart: true } do |f|
+    .field
+      = t('cms.venues.image')
+      = f.fields_for :images do |image_form|  
+        = image_form.file_field :content, { class: "venue-images-attributes", "index-data" => image_form.options[:child_index] }
+        = image_form.link_to_remove t('cms.venues.remove_image')
+        .image-preview
+          = venue_image_tag(@venue, image_form)
+    = f.link_to_add t('cms.venues.add_image'), :images
+    %div
+      = f.submit "Submit", class: "btn btn-info"

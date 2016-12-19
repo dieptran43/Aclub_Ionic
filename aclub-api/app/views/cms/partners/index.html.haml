@@ -1,0 +1,5 @@
+%div
+  %span.title= t('cms.partners.name')
+  = link_to t('cms.actions.new'), new_cms_partner_path, class: 'btn new-record'
+= render 'list_of_partners', partners: @partners, show_action: true
+= paginate @partners

@@ -1,0 +1,9 @@
+#phone-registration-background
+  = image_tag(@advertising_event.win_page_background.url)
+#verification-code-form
+  %input#verification-code{ "type" => "text", "disabled" => true, "value" => @current_user.lucky_code(@advertising_event) }
+  %p#phone
+    = @current_user.humanized_phone
+  %p#introduction
+    = t('advertising_event.reward_introduction')
+  = render 'other_links'

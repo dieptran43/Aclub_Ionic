@@ -1,0 +1,18 @@
+#third-party-accounts
+  .banner
+    = image_tag('banner.png')
+  .header.text-center
+    = I18n.t('sign_up.header_text')
+  .small-header.text-center
+    %i.text= I18n.t('sign_up.step_2_text')
+    %i.content= I18n.t('sign_up.step_2_content')
+  .note.text-center
+    = I18n.t('sign_up.step_2_note')
+  .field-label.text-center
+    = I18n.t('sign_up.select_fanpage')
+  = form_tag sync_data_from_facebook_account_owner_third_party_accounts_path, method: :post do
+    .field.input-group
+      = select_tag 'fanpage', options_for_select(@accounts.collect { |account| [account["name"], account.to_json] }), class: 'form-control'
+      = hidden_field_tag 'identity_id', @identity.id
+    .actions
+      = submit_tag 'Submit', class: 'btn btn-success'

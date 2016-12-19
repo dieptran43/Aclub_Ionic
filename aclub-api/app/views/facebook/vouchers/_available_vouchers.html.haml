@@ -1,0 +1,13 @@
+.paddingleft10.paddingright10
+  %h3.fontsize30.lineheight40.margin0.paddingbottom5.colorgrey1.fontweightnormal Sự kiện đang diễn ra
+.overflowhidden.paddingtop5
+  %ul.container.positionrelative.width850.leftminus10ltr
+    - coupons.each_with_index do |coupon, index|
+      %li{:class=>['floatleftltr', 'margin5', (index == 0?'width400':'width195'), 'positionrelative']}
+        %a.displayblock.hovertextdecorationnone.colordarkgrey2.hoverbackgroundcolorlightgrey1{:href => "#", :onclick => "showModalPlayAgame(this, '#{coupon.home_page_background.url}', '#{coupon.id}');"}
+          %input.coupon-description{:type => "hidden", :value => h(coupon.description)}
+            %img.backgroundcolorlightgrey1{:height => index == 0? "400":"195", :src => coupon.home_page_background.url, :width => index == 0? "400":"195"}
+              .positionabsolute.bottom0.left0.widthfull.paddingtop10.paddingbottom6.backgroundgradientblacktransparent
+                %h4.textoverflowellipsis.fontsize16.lineheight20.paddingleft10.paddingright10.colorwhite.textshadowblacktransparent3.fontweightbold
+                %p.fontsize12.lineheight18.paddingleft10.paddingright10.textoverflowellipsis.colorwhite.textshadowblacktransparent3
+                %p.fontsize12.lineheight18.textoverflowellipsis.paddingleft10.paddingright10.colorwhite.textshadowblacktransparent3 #{h(coupon.name)}

@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Aclub.vn
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %script{ src: "https://maps.googleapis.com/maps/api/js" }
+    = csrf_meta_tags
+  %body{ id: @with_header_background_color ? "with-header-background-color" : ""  }
+    = render "layouts/alert"
+    - if @with_header
+      = render 'layouts/header'
+    - if current_admin
+      - if @with_side_bar 
+        .col-md-2.side-bar
+          = render 'layouts/side_bar'
+      %div{ class: @with_side_bar ? "col-md-10 main-content" : "main-content" }
+        = yield
+    - else
+      = yield

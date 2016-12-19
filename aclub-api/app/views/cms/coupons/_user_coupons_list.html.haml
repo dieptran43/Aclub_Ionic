@@ -1,0 +1,23 @@
+.row.index-table-row
+  .col-md-2
+    = t('cms.users.name_attribute')
+  .col-md-3
+    = t('cms.users.phone_attribute')
+  .col-md-3
+    = t('cms.users.email_attribute')
+  .col-md-3
+    = t('cms.coupons.status')
+  .col-md-1
+    = t('cms.coupons.token')
+- user_coupons.each_with_index do |user_coupon, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-2
+      = user_coupon.user.try(:name)
+    .col-md-3
+      = user_coupon.user.try(:humanized_phone)
+    .col-md-3
+      = user_coupon.user.try(:email)
+    .col-md-3
+      = vietnamese_status(user_coupon.status)
+    .col-md-1
+    = user_coupon.token

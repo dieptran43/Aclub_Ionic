@@ -1,0 +1,23 @@
+.row.index-table-row
+  .col-md-1
+    = t('cms.partners.id')
+  .col-md-3
+    = t('cms.partners.name_attribute')
+  .col-md-3
+    = t('cms.actions.label')
+- partners.each_with_index do |partner, index|
+  .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+    .col-md-1
+      = partner.id
+    .col-md-3
+      = partner.name
+    .col-md-3
+      - if current_admin.admin?
+        = link_to t('cms.actions.show'), cms_partner_path(partner), class: 'btn btn-success'
+        - if show_action
+          = link_to t('cms.actions.edit'), edit_cms_partner_path(partner), class: 'btn btn-info'
+          = link_to t('cms.actions.delete'), cms_partner_path(partner), class: 'btn btn-danger', method: :delete
+      - elsif current_admin.owner?
+        = link_to t('cms.actions.show'), owner_partner_path(partner), class: 'btn btn-success'
+        - if show_action
+          = link_to t('cms.actions.edit'), edit_owner_partner_path(partner), class: 'btn btn-info'

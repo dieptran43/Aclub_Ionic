@@ -1,0 +1,29 @@
+%div
+  %span.title= "Detials (#{@advertising_event.public_link(request.host)})"
+= render 'form', advertising_event: @advertising_event, preview: true
+.joined-user-list
+  %h4
+    Nguời dùng tham gia sự kiện
+  .row.index-table-row
+    .col-md-1
+      = t('cms.users.id')
+    .col-md-3
+      = t('cms.users.name_attribute')
+    .col-md-3
+      = t('cms.users.phone_attribute')
+    .col-md-3
+      = t('cms.users.email_attribute')
+    .col-md-2
+      = t('cms.users.lucky_code')
+  - @users.each_with_index do |user, index|
+    .row{ class: "index-table-row #{ index%2 == 1 ? 'with-background' : '' }"}
+      .col-md-1
+        = user.id
+      .col-md-3
+        = user.name
+      .col-md-3
+        = user.phone
+      .col-md-3
+        = user.email
+      .col-md-2
+        = user.lucky_code(@advertising_event)
